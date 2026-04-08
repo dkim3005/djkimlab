@@ -1,3 +1,4 @@
+import Link from "next/link";
 import StarField from "./components/StarField";
 
 const PROJECTS = [
@@ -110,25 +111,25 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 border-b border-card-border bg-background/80 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <a href="/" className="font-mono text-sm font-semibold tracking-tight">
+          <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
             djkimlab<span className="text-accent">.com</span>
-          </a>
+          </Link>
           <div className="flex items-center gap-6">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm text-muted hover:text-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
+            <Link
               href="/resume.pdf"
               className="text-sm px-3 py-1.5 rounded-md border border-card-border text-muted hover:text-foreground hover:border-accent/50 transition-all"
             >
               Resume
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -159,12 +160,12 @@ export default function Home() {
               )}
             </div>
             <div className="flex gap-3">
-              <a
+              <Link
                 href="#projects"
                 className="text-sm px-5 py-2.5 rounded-md bg-accent text-white hover:bg-accent-hover transition-colors font-medium"
               >
                 View Projects
-              </a>
+              </Link>
               <a
                 href="https://github.com/dkim3005/djkimlab"
                 target="_blank"
@@ -220,7 +221,7 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {PROJECTS.map((project) => (
-              <a
+              <Link
                 key={project.title}
                 href={project.href}
                 className="group block p-6 rounded-lg border border-card-border bg-card-bg hover:border-accent/40 transition-all duration-200"
@@ -246,7 +247,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
