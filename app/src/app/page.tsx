@@ -1,5 +1,4 @@
 import Link from "next/link";
-import StarField from "./components/StarField";
 
 const PROJECTS = [
   {
@@ -107,7 +106,6 @@ const NAV_LINKS = [
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative">
-      <StarField />
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 border-b border-card-border bg-background/80 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
