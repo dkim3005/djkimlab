@@ -36,9 +36,9 @@ const PROJECTS = [
   {
     title: "ML Algorithm Visualizer",
     description:
-      "Interactive visualizations of core ML algorithms — Decision Trees, k-Means clustering, PCA dimensionality reduction, SVM decision boundaries.",
-    tags: ["TypeScript", "D3.js", "React"],
-    status: "Coming Soon",
+      "Interactive ML history timeline plus live demos that connect intuition, optimization, and math foundations.",
+    tags: ["TypeScript", "React", "SVG"],
+    status: "Live Demo",
     href: "/projects/mlviz",
   },
 ];

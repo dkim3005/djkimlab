@@ -3,12 +3,15 @@ title: "Model Evaluation"
 category: ai-ml/foundations
 tags: [evaluation, accuracy, precision, recall, f1, auc, fundamentals]
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-09
 ---
 
 ## I Use This When...
 
-<!-- Practical use case -->
+I already trained a model and now need to answer the only question that really
+matters: is it actually good for the task? Evaluation is where we detect
+imbalanced-class failure, threshold tradeoffs, overfitting, and whether one
+model is truly better than another.
 
 ## History
 
@@ -22,25 +25,65 @@ Accuracy alone is misleading — 99% accuracy on cancer detection means nothing 
 
 ### Visual Intuition
 
-<!-- 3B1B-style animation description -->
+Picture a confusion matrix filling in as predictions arrive:
+
+- true positives
+- false positives
+- true negatives
+- false negatives
+
+Now imagine sliding the decision threshold:
+
+- precision rises when the model becomes conservative
+- recall rises when it becomes aggressive
+
+Evaluation is really the language for those tradeoffs.
 
 ### Step by Step
 
-<!-- Algorithm walkthrough -->
+1. Keep a validation or test set separate from training
+2. Run the model and collect predictions
+3. Compare predictions against ground truth
+4. Pick metrics that match the task and class balance
+5. If the model outputs probabilities, study threshold curves as well
+6. Compare train and validation behavior to diagnose overfitting
 
 ## Code
 
 ```python
-# Implementation sketch
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+
+accuracy = accuracy_score(y_true, y_pred)
+precision = precision_score(y_true, y_pred)
+recall = recall_score(y_true, y_pred)
+f1 = f1_score(y_true, y_pred)
 ```
 
 ## The Math Inside
 
-Precision: TP/(TP+FP) — 'of predicted positives, how many are real?' Recall: TP/(TP+FN) — 'of actual positives, how many did we find?' F1: harmonic mean. AUC-ROC: threshold-independent.
+Core metrics:
+
+`accuracy = (TP + TN) / (TP + TN + FP + FN)`
+
+`precision = TP / (TP + FP)`
+
+`recall = TP / (TP + FN)`
+
+`F1 = 2 * precision * recall / (precision + recall)`
+
+Interpretation:
+
+- precision asks "when we predict positive, how often are we right?"
+- recall asks "of the true positives, how many did we catch?"
+- F1 balances the two when neither alone is enough
+- ROC/AUC studies ranking quality across thresholds rather than at one fixed cutoff
 
 ## Math Prerequisites
 
-<!-- Links to math wiki -->
+- [Probability Distributions](../../math/probability/distributions.md) - predicted probabilities
+- [Loss Functions](loss-functions.md) - training objective vs evaluation metric
+- [Bias-Variance Tradeoff](bias-variance.md) - how evaluation reveals underfit and overfit
 
 ## Related
 
