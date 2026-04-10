@@ -10,6 +10,8 @@ updated: 2026-04-08
 
 Every major model was born from frustration with the previous one. This is the story of that chain.
 
+For a click-through version of that chain, open the [interactive timeline](/projects/mlviz).
+
 ## 1800s — The Statistical Roots
 
 **Least Squares (Legendre 1805, Gauss 1809)**

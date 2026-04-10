@@ -3,12 +3,14 @@ title: "Random Forest"
 category: ai-ml/supervised/classification
 tags: [classification, random-forest, ensemble, bagging, supervised]
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-09
 ---
 
 ## I Use This When...
 
-<!-- Practical use case: when and why you'd reach for this model -->
+I want a strong tabular baseline with minimal tuning, and I care more about
+reliable performance than perfect interpretability. Random forests are often a
+safe first model when a single tree is too unstable.
 
 ## History
 
@@ -16,33 +18,81 @@ Breiman (2001). Combined bagging with random feature selection. Still one of the
 
 ## Why It Exists
 
-A single decision tree overfits. But if you build hundreds of slightly different trees (each seeing different data and features) and let them vote, the errors cancel out.
+The "why" chain is:
+
+- A single decision tree is easy to understand, but it overfits easily.
+- Small data changes can produce a very different tree.
+- We want the flexibility of trees without that instability.
+- So we train many trees on different random views of the data.
+- Then we average or vote across them.
+
+Random forests exist because many unstable but diverse trees together are much
+more reliable than one tree alone.
 
 ## How It Works
 
-<!-- 3B1B-style explanation: visual intuition first, then mechanics -->
-
 ### Visual Intuition
 
-<!-- Animation/diagram description: what the viewer should see -->
+Imagine cloning the training process hundreds of times.
+
+- each tree sees a bootstrap sample of the rows
+- each split only sees a random subset of the features
+- each tree makes its own prediction
+- the forest takes a vote
+
+One tree may be wrong for noisy reasons, but many trees tend to wash out those
+individual quirks.
+
+The corresponding timeline node already exists here:
+
+-> [MLViz Node: Decision Tree / Forest Era](/projects/mlviz/decision-tree)
 
 ### Step by Step
 
-<!-- Algorithm walkthrough -->
+1. Draw a bootstrap sample from the training set
+2. Train a decision tree on that sample
+3. At each split, consider only a random subset of features
+4. Repeat to build many trees
+5. Aggregate predictions by majority vote or averaging
+
+The randomness is not a bug. It is how the forest creates diversity across
+trees.
 
 ## Code
 
 ```python
-# Implementation sketch
+forest = []
+for _ in range(num_trees):
+    sample = bootstrap_sample(train_data)
+    tree = train_tree(sample, max_features="sqrt")
+    forest.append(tree)
+
+# classification prediction:
+# vote across tree.predict(x)
 ```
 
 ## The Math Inside
 
-Bagging: train each tree on a bootstrap sample (random subset with replacement). Random subspace: at each split, consider only sqrt(n) features.
+Two key ingredients:
+
+Bagging:
+
+- train each tree on a bootstrap sample, meaning rows are sampled with replacement
+- averaging predictions reduces variance
+
+Random subspace:
+
+- at each split, only a subset of features is allowed to compete
+- this prevents all trees from making the same early split
+
+If all trees were identical, averaging would not help much. Random feature
+selection keeps them diverse enough for aggregation to matter.
 
 ## Math Prerequisites
 
-<!-- Links to math wiki articles needed to understand this -->
+- [Decision Tree](decision-tree.md) - the base learner inside the forest
+- [Ensemble Methods](../../foundations/ensemble-methods.md) - why bagging works
+- [Bias-Variance Tradeoff](../../foundations/bias-variance.md) - random forest mostly attacks variance
 
 ## Related
 
