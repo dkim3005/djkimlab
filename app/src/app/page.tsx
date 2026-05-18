@@ -2,6 +2,46 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
+    title: "Recon Engine",
+    description:
+      "Investment reconciliation and break detection — matches a custodian position and cash feed against the internal book of record, classifies exceptions (quantity, market value, missing, cash), scores severity by dollar impact, and assigns a probable cause for triage.",
+    tags: ["Python", "FastAPI", "Reconciliation", "Investment Operations", "Next.js"],
+    status: "",
+    href: "https://recon.djkimlab.com",
+  },
+  {
+    title: "Reporting Automation",
+    description:
+      "One-click management and client reporting from holdings data — net asset value, performance versus benchmark, asset allocation, top holdings, and management fee accrual, with CSV export of the report package.",
+    tags: ["Python", "FastAPI", "Portfolio Reporting", "Automation", "Next.js"],
+    status: "",
+    href: "https://reports.djkimlab.com",
+  },
+  {
+    title: "Data Quality Monitor",
+    description:
+      "Continuous profiling of inbound investment data feeds — pricing, FX, positions, index constituents, and ratings. Runs completeness, timeliness, validity, accuracy, and consistency checks and produces a per-feed quality scorecard with an exception queue.",
+    tags: ["Python", "FastAPI", "Data Quality", "Anomaly Detection", "Next.js"],
+    status: "",
+    href: "https://dq.djkimlab.com",
+  },
+  {
+    title: "Ops Document AI",
+    description:
+      "Document intelligence for Investment Operations — structured field extraction from broker trade confirmations with confidence scoring and arithmetic validation, plus a TF-IDF retrieval assistant over an operations procedure knowledge base.",
+    tags: ["Python", "FastAPI", "Information Retrieval", "TF-IDF", "Next.js"],
+    status: "",
+    href: "https://docai.djkimlab.com",
+  },
+  {
+    title: "Trade-to-Ledger",
+    description:
+      "Posts a trade blotter to a double-entry general ledger — buys, sells, dividends, interest, and fees become balanced journal entries with average-cost realized gain/loss, rolled up into a trial balance and an income statement.",
+    tags: ["Python", "FastAPI", "Double-entry Accounting", "General Ledger", "Next.js"],
+    status: "",
+    href: "https://ledger.djkimlab.com",
+  },
+  {
     title: "RL Agent Playground",
     description:
       "Watch a DQN agent learn CartPole and Acrobot in real time — reward curves, epsilon decay, and loss streamed live via WebSocket. Configurable hidden size, learning rate, and episode budget with a target-network DQN and replay buffer.",
