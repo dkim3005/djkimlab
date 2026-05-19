@@ -21,7 +21,7 @@ export default function StarField() {
     if (!ctx) return;
 
     let animationId: number;
-    const STAR_COUNT = 120;
+    const STAR_COUNT = 80;
     const SPEED = 0.15;
     const stars: Star[] = [];
 
@@ -36,8 +36,8 @@ export default function StarField() {
         x: Math.random() * (canvas?.width ?? 1920),
         y: Math.random() * (canvas?.height ?? 1080),
         z: Math.random() * 3 + 0.5,
-        size: Math.random() * 1.5 + 0.3,
-        opacity: Math.random() * 0.5 + 0.1,
+        size: Math.random() * 2.0 + 0.5,
+        opacity: Math.random() * 0.4 + 0.5,
       };
     }
 
@@ -59,8 +59,8 @@ export default function StarField() {
         star.x += SPEED * 0.3 * star.z;
 
         // Gentle twinkle
-        star.opacity += (Math.random() - 0.5) * 0.01;
-        star.opacity = Math.max(0.05, Math.min(0.6, star.opacity));
+        star.opacity += (Math.random() - 0.5) * 0.015;
+        star.opacity = Math.max(0.4, Math.min(0.95, star.opacity));
 
         // Wrap around
         if (star.y < -5) {

@@ -34,9 +34,14 @@ export default function WikiIndex() {
             <Link href="/wiki" className="text-sm text-foreground font-medium">
               Wiki
             </Link>
-            <Link href="/research" className="text-sm text-muted hover:text-foreground transition-colors">
-              Research
-            </Link>
+            <a
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-3 py-1.5 rounded-md border border-card-border text-muted hover:text-foreground hover:border-accent/50 transition-all"
+            >
+              Resume ↗
+            </a>
           </div>
         </div>
       </nav>
