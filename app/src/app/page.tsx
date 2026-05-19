@@ -2,52 +2,28 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
-    title: "Recon Engine",
+    title: "Investment Operations Suite",
     description:
-      "Investment reconciliation and break detection — matches a custodian position and cash feed against the internal book of record, classifies exceptions (quantity, market value, missing, cash), scores severity by dollar impact, and assigns a probable cause for triage.",
-    tags: ["Python", "FastAPI", "Reconciliation", "Investment Operations", "Next.js"],
+      "A live back-office platform — five operations modules over one continuously evolving market simulation: custodian reconciliation and break detection, NAV and performance reporting, multi-source data quality monitoring, trade-confirmation extraction with an SOP assistant, and trade-to-ledger double-entry accounting. Anchored to real FRED market data.",
+    tags: ["Python", "FastAPI", "Investment Operations", "Live Simulation", "FRED", "Next.js"],
     status: "",
-    href: "https://recon.djkimlab.com",
+    href: "https://ops.djkimlab.com",
   },
   {
-    title: "Reporting Automation",
+    title: "Radiology AI",
     description:
-      "One-click management and client reporting from holdings data — net asset value, performance versus benchmark, asset allocation, top holdings, and management fee accrual, with CSV export of the report package.",
-    tags: ["Python", "FastAPI", "Portfolio Reporting", "Automation", "Next.js"],
+      "A chest X-ray analysis platform over the NIH ChestX-ray14 corpus — DenseNet121 multi-label triage with FHIR patient context, Class Activation Map explainability showing which regions drove each prediction, and CLIP ViT-B/32 semantic image search. One shared model, three workflows.",
+    tags: ["PyTorch", "DenseNet121", "CLIP", "Grad-CAM", "FHIR", "Next.js"],
     status: "",
-    href: "https://reports.djkimlab.com",
+    href: "https://radiology.djkimlab.com",
   },
   {
-    title: "Data Quality Monitor",
+    title: "Reinforcement Learning Lab",
     description:
-      "Continuous profiling of inbound investment data feeds — pricing, FX, positions, index constituents, and ratings. Runs completeness, timeliness, validity, accuracy, and consistency checks and produces a per-feed quality scorecard with an exception queue.",
-    tags: ["Python", "FastAPI", "Data Quality", "Anomaly Detection", "Next.js"],
+      "Two reinforcement-learning workbenches in one — a DQN agent learning Gymnasium control tasks (CartPole, Acrobot) with reward and loss streamed live over WebSocket, and a Connect-4 arena pitting alpha-beta minimax, Monte Carlo Tree Search, and an AlphaZero-style self-play network against you.",
+    tags: ["PyTorch", "DQN", "MCTS", "AlphaZero", "Gymnasium", "Next.js"],
     status: "",
-    href: "https://dq.djkimlab.com",
-  },
-  {
-    title: "Ops Document AI",
-    description:
-      "Document intelligence for Investment Operations — structured field extraction from broker trade confirmations with confidence scoring and arithmetic validation, plus a TF-IDF retrieval assistant over an operations procedure knowledge base.",
-    tags: ["Python", "FastAPI", "Information Retrieval", "TF-IDF", "Next.js"],
-    status: "",
-    href: "https://docai.djkimlab.com",
-  },
-  {
-    title: "Trade-to-Ledger",
-    description:
-      "Posts a trade blotter to a double-entry general ledger — buys, sells, dividends, interest, and fees become balanced journal entries with average-cost realized gain/loss, rolled up into a trial balance and an income statement.",
-    tags: ["Python", "FastAPI", "Double-entry Accounting", "General Ledger", "Next.js"],
-    status: "",
-    href: "https://ledger.djkimlab.com",
-  },
-  {
-    title: "Game AI Lab",
-    description:
-      "Play Connect-4 against three game-AI engines and watch each one search: depth-7 alpha-beta minimax, UCB1 Monte Carlo Tree Search, and an AlphaZero-style neural MCTS with a policy/value network trained entirely by self-play. Every move returns a full search breakdown — win probability, column preference, and node counts.",
-    tags: ["PyTorch", "MCTS", "AlphaZero", "Self-play RL", "Minimax", "Next.js"],
-    status: "",
-    href: "https://game.djkimlab.com",
+    href: "https://rl.djkimlab.com",
   },
   {
     title: "Autonomous AI Agent",
@@ -58,44 +34,12 @@ const PROJECTS = [
     href: "https://agent.djkimlab.com",
   },
   {
-    title: "RL Agent Playground",
-    description:
-      "Watch a DQN agent learn CartPole and Acrobot in real time — reward curves, epsilon decay, and loss streamed live via WebSocket. Configurable hidden size, learning rate, and episode budget with a target-network DQN and replay buffer.",
-    tags: ["PyTorch", "Gymnasium", "DQN", "WebSocket", "FastAPI", "Next.js"],
-    status: "",
-    href: "https://rl.djkimlab.com",
-  },
-  {
-    title: "CLIP Visual Search",
-    description:
-      "Zero-shot semantic search over a chest X-ray corpus using OpenAI CLIP ViT-B/32. Query by free-text ('cardiomegaly', 'pleural effusion') or upload an image to find visually and semantically similar studies. Cosine similarity ranked results with auto-generated semantic tags.",
-    tags: ["CLIP", "ViT-B/32", "FAISS", "Zero-shot", "FastAPI", "Next.js"],
-    status: "",
-    href: "https://search.djkimlab.com",
-  },
-  {
     title: "Audio Intelligence",
     description:
       "Upload audio → Whisper tiny transcription with timestamps, sentence-level sentiment via DistilBERT, keyword extraction, and speaking rate. Full NLP pipeline from raw speech to structured analysis report.",
     tags: ["faster-whisper", "DistilBERT", "NLP", "Sentiment", "FastAPI", "Next.js"],
     status: "",
     href: "https://audio.djkimlab.com",
-  },
-  {
-    title: "Explainable AI",
-    description:
-      "Grad-CAM activation maps and per-class attribution for the DenseNet121 chest X-ray classifier. Shows which image regions drove each pathology prediction — overlaid heatmap, top-5 predictions with confidence bars, and natural-language attention summary.",
-    tags: ["Grad-CAM", "Captum", "DenseNet121", "XAI", "PyTorch", "Next.js"],
-    status: "",
-    href: "https://xai.djkimlab.com",
-  },
-  {
-    title: "Medical AI",
-    description:
-      "Chest X-ray multi-label classification using DenseNet121 with FHIR-oriented patient and imaging templates. Radiology worklist with AI-assisted triage, confidence band visualization, and FHIR data summaries — no raw JSON exposed.",
-    tags: ["PyTorch", "FHIR", "DenseNet121", "Computer Vision", "FastAPI", "Next.js"],
-    status: "",
-    href: "https://fhir.djkimlab.com",
   },
   {
     title: "Responsive Lamp",
