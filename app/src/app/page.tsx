@@ -3,6 +3,8 @@ import Link from "next/link";
 const PROJECTS = [
   {
     title: "Investment Operations Suite",
+    category: "Investment Ops",
+    tagline: "Live back-office platform — five operations modules, one market simulation.",
     description:
       "A live back-office platform — five operations modules over one continuously evolving market simulation: custodian reconciliation and break detection, NAV and performance reporting, multi-source data quality monitoring, trade-confirmation extraction with an SOP assistant, and trade-to-ledger double-entry accounting. Anchored to real FRED market data.",
     tags: ["Python", "FastAPI", "Investment Operations", "Live Simulation", "FRED", "Next.js"],
@@ -11,6 +13,8 @@ const PROJECTS = [
   },
   {
     title: "Radiology AI",
+    category: "Medical AI",
+    tagline: "Chest X-ray triage, explainability and semantic search — one shared model.",
     description:
       "A chest X-ray analysis platform over the NIH ChestX-ray14 corpus — DenseNet121 multi-label triage with FHIR patient context, Class Activation Map explainability showing which regions drove each prediction, and CLIP ViT-B/32 semantic image search. One shared model, three workflows.",
     tags: ["PyTorch", "DenseNet121", "CLIP", "Grad-CAM", "FHIR", "Next.js"],
@@ -19,6 +23,8 @@ const PROJECTS = [
   },
   {
     title: "Reinforcement Learning Lab",
+    category: "Reinforcement Learning",
+    tagline: "A DQN agent and a Connect-4 game-AI arena in one workbench.",
     description:
       "Two reinforcement-learning workbenches in one — a DQN agent learning Gymnasium control tasks (CartPole, Acrobot) with reward and loss streamed live over WebSocket, and a Connect-4 arena pitting alpha-beta minimax, Monte Carlo Tree Search, and an AlphaZero-style self-play network against you.",
     tags: ["PyTorch", "DQN", "MCTS", "AlphaZero", "Gymnasium", "Next.js"],
@@ -27,6 +33,8 @@ const PROJECTS = [
   },
   {
     title: "Autonomous AI Agent",
+    category: "Agentic AI",
+    tagline: "A tool-using agent that plans, acts, observes and self-corrects.",
     description:
       "A tool-using reasoning agent that runs a plan → act → observe loop — calling tools, reading results, and self-correcting until it solves the task. Tools include a safe calculator and a restricted Python sandbox (AST-validated, no file or network access). The full reasoning trace is streamed live.",
     tags: ["LLM", "Agentic AI", "Tool Use", "Sandbox", "FastAPI", "Next.js"],
@@ -35,6 +43,8 @@ const PROJECTS = [
   },
   {
     title: "Audio Intelligence",
+    category: "NLP & Speech",
+    tagline: "Speech → transcription, sentiment, keywords — a full NLP pipeline.",
     description:
       "Upload audio → Whisper tiny transcription with timestamps, sentence-level sentiment via DistilBERT, keyword extraction, and speaking rate. Full NLP pipeline from raw speech to structured analysis report.",
     tags: ["faster-whisper", "DistilBERT", "NLP", "Sentiment", "FastAPI", "Next.js"],
@@ -43,6 +53,8 @@ const PROJECTS = [
   },
   {
     title: "Responsive Lamp",
+    category: "Vision & HCI",
+    tagline: "A gaze-tracked virtual desk lamp with object detection and memory.",
     description:
       "6-DOF virtual desk lamp with real-time gaze tracking via MediaPipe iris landmarks, YOLOv8 object detection, and spatial memory queries answered by GPT-4o-mini grounded in a local visual store.",
     tags: ["MediaPipe", "YOLOv8", "Three.js", "GPT-4o-mini", "WebSocket", "FastAPI"],
@@ -51,6 +63,8 @@ const PROJECTS = [
   },
   {
     title: "Quant Trading Platform",
+    category: "Quant Finance",
+    tagline: "Regime-aware swing trading with multifactor ranking and paper execution.",
     description:
       "Regime-aware swing trading platform for US equities and ETFs. Multifactor ranking model (trend, momentum, relative strength, accumulation/volume) layered with HMM-based market regime detection, FinBERT sentiment analysis, and FRED macro inputs. Paper trading engine with entry sizing, stop/TP/trailing-stop, and a 15-min scheduled cycle.",
     tags: ["Python", "FastAPI", "HMM", "FinBERT", "FRED", "IBKR", "TimescaleDB", "Streamlit"],
@@ -59,6 +73,8 @@ const PROJECTS = [
   },
   {
     title: "Consulate Chatbot",
+    category: "LLM & RAG",
+    tagline: "A grounded RAG chatbot for the Korean Consulate in Toronto.",
     description:
       "RAG-based civil service chatbot for the Consulate General of Korea in Toronto. Hybrid BM25 + OpenAI embedding search over 216 official bulletin posts (passport, visa, notarization, military service, and more), answered by GPT-4o grounded strictly in official content — with source links and disclaimer.",
     tags: ["Python", "FastAPI", "OpenAI", "RAG", "BM25", "SSE"],
@@ -67,6 +83,8 @@ const PROJECTS = [
   },
   {
     title: "Deep Learning — CS 7643",
+    category: "Coursework",
+    tagline: "CNNs, RNNs and attention implemented from scratch in PyTorch.",
     description:
       "Implemented CNNs, RNNs, and attention mechanisms from scratch in PyTorch for image classification, sequence modelling, and transfer learning. Reproduced foundational architectures and benchmarked against pretrained baselines.",
     tags: ["PyTorch", "CNN", "RNN", "Attention", "Transfer Learning"],
@@ -75,6 +93,8 @@ const PROJECTS = [
   },
   {
     title: "ML for Trading — CS 7646",
+    category: "Coursework",
+    tagline: "A market simulation framework with Q-learning strategy learners.",
     description:
       "Built a full market simulation framework implementing Q-learning and random forest strategy learners. Evaluated portfolio performance using Sharpe ratio, cumulative return, and drawdown against buy-and-hold baselines.",
     tags: ["Python", "Q-Learning", "Random Forest", "Sharpe Ratio", "RL"],
@@ -82,6 +102,18 @@ const PROJECTS = [
     href: "#",
   },
 ];
+
+const CATEGORY: Record<string, { chip: string; bar: string }> = {
+  "Investment Ops": { chip: "text-emerald-300 bg-emerald-500/10 border-emerald-500/25", bar: "bg-emerald-500" },
+  "Medical AI": { chip: "text-cyan-300 bg-cyan-500/10 border-cyan-500/25", bar: "bg-cyan-500" },
+  "Reinforcement Learning": { chip: "text-violet-300 bg-violet-500/10 border-violet-500/25", bar: "bg-violet-500" },
+  "Agentic AI": { chip: "text-amber-300 bg-amber-500/10 border-amber-500/25", bar: "bg-amber-500" },
+  "NLP & Speech": { chip: "text-rose-300 bg-rose-500/10 border-rose-500/25", bar: "bg-rose-500" },
+  "Vision & HCI": { chip: "text-blue-300 bg-blue-500/10 border-blue-500/25", bar: "bg-blue-500" },
+  "Quant Finance": { chip: "text-teal-300 bg-teal-500/10 border-teal-500/25", bar: "bg-teal-500" },
+  "LLM & RAG": { chip: "text-orange-300 bg-orange-500/10 border-orange-500/25", bar: "bg-orange-500" },
+  "Coursework": { chip: "text-slate-300 bg-slate-500/10 border-slate-500/25", bar: "bg-slate-600" },
+};
 
 const EXPERIENCE = [
   {
@@ -339,54 +371,88 @@ export default function Home() {
       {/* Projects */}
       <section id="projects" className="py-20 px-6 border-t border-card-border">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold mb-2">Projects</h2>
+          <div className="flex items-end justify-between flex-wrap gap-2 mb-2">
+            <h2 className="text-2xl font-bold">Projects</h2>
+            <p className="text-xs font-mono text-muted">
+              8 live applications · 2 coursework
+            </p>
+          </div>
           <p className="text-muted text-sm mb-10">
-            Applied ML, CV, and systems work — production and coursework.
+            End-to-end systems across investment operations, medical AI, agents,
+            and reinforcement learning — every live project runs in production.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {PROJECTS.map((project) => (
-              <a
-                key={project.title}
-                href={project.href === "#" ? undefined : project.href}
-                target={project.href === "#" ? undefined : "_blank"}
-                rel={project.href === "#" ? undefined : "noopener noreferrer"}
-                className={`group block p-6 rounded-lg border border-card-border bg-card-bg transition-all duration-200 ${
-                  project.href !== "#" ? "hover:border-accent/40 cursor-pointer" : "cursor-default"
-                }`}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className={`font-semibold ${project.href !== "#" ? "group-hover:text-accent" : ""} transition-colors`}>
-                    {project.title}
-                  </h3>
-                  {project.status && (
-                    <span
-                      className={`text-xs font-mono px-2 py-0.5 rounded-full border shrink-0 ml-3 ${
-                        project.status === "Georgia Tech"
-                          ? "border-violet-500/30 text-violet-400"
-                          : project.status === "Korean only"
-                          ? "border-blue-500/30 text-blue-400"
-                          : "border-card-border text-muted"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {PROJECTS.map((project) => {
+              const cat = CATEGORY[project.category] ?? CATEGORY["Coursework"];
+              const isLive = project.href !== "#";
+              return (
+                <a
+                  key={project.title}
+                  href={isLive ? project.href : undefined}
+                  target={isLive ? "_blank" : undefined}
+                  rel={isLive ? "noopener noreferrer" : undefined}
+                  className={`group relative flex flex-col rounded-xl border border-card-border bg-card-bg overflow-hidden transition-all duration-200 ${
+                    isLive
+                      ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
+                      : "cursor-default"
+                  }`}
+                >
+                  <div className={`h-1 w-full ${cat.bar}`} />
+                  <div className="flex flex-col flex-1 p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <span
+                        className={`text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded border ${cat.chip}`}
+                      >
+                        {project.category}
+                      </span>
+                      {isLive ? (
+                        <span className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-emerald-400">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Live
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-violet-400">
+                          {project.status}
+                        </span>
+                      )}
+                    </div>
+                    <h3
+                      className={`text-lg font-semibold mb-1.5 transition-colors ${
+                        isLive ? "group-hover:text-accent" : ""
                       }`}
                     >
-                      {project.status}
-                    </span>
-                  )}
-                </div>
-                <p className="text-sm text-muted leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-mono px-2 py-0.5 rounded bg-background text-muted border border-card-border/50"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </a>
-            ))}
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-slate-300 leading-relaxed mb-3">
+                      {project.tagline}
+                    </p>
+                    <p className="text-[13px] text-muted leading-relaxed mb-4 flex-1">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[11px] font-mono px-2 py-0.5 rounded bg-background text-muted border border-card-border/50"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    {isLive && (
+                      <div className="mt-4 pt-3 border-t border-card-border/60 flex items-center justify-between text-xs font-mono">
+                        <span className="text-muted">
+                          {project.href.replace("https://", "")}
+                        </span>
+                        <span className="text-muted group-hover:text-accent transition-colors">
+                          Open ↗
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
