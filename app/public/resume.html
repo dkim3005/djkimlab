@@ -105,11 +105,11 @@
     /* ── Header ── */
     .header {
       text-align: center;
-      margin-bottom: 8pt;
+      margin-bottom: 6pt;
     }
 
     .header h1 {
-      font-size: 18pt;
+      font-size: 16pt;
       font-weight: 700;
       letter-spacing: -.01em;
       margin-bottom: 4pt;
@@ -123,7 +123,7 @@
       justify-content: center;
       align-items: center;
       gap: 0;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     .header .contact a {
@@ -136,7 +136,7 @@
 
     /* ── Section ── */
     .section {
-      margin-top: 10pt;
+      margin-top: 7pt;
     }
 
     .section-title {
@@ -146,13 +146,13 @@
       letter-spacing: .08em;
       padding-bottom: 2pt;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 5pt;
+      margin-bottom: 4pt;
     }
 
     /* ── Skills ── */
     .skills-table {
       font-size: 9pt;
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
     .skills-table .row {
@@ -171,7 +171,7 @@
     }
 
     /* ── Experience / Projects entries ── */
-    .entry { margin-bottom: 7pt; }
+    .entry { margin-bottom: 5pt; }
     .entry:last-child { margin-bottom: 0; }
 
     .entry-header {
@@ -223,8 +223,8 @@
     .bullets li {
       font-size: 9pt;
       color: #333;
-      line-height: 1.5;
-      margin-bottom: 2pt;
+      line-height: 1.35;
+      margin-bottom: 1pt;
       padding-left: 2pt;
     }
 
@@ -240,7 +240,7 @@
     .project-body {
       font-size: 9pt;
       color: #333;
-      line-height: 1.55;
+      line-height: 1.4;
     }
 
     /* ── Education rows ── */
@@ -268,7 +268,7 @@
       font-style: italic;
       font-size: 9pt;
       color: #333;
-      margin-bottom: 4pt;
+      margin-bottom: 2pt;
     }
 
     .edu-simple {
@@ -292,7 +292,7 @@
 
     /* ── Spacing helpers ── */
     .mt2 { margin-top: 2pt; }
-    .mt4 { margin-top: 4pt; }
+    .mt4 { margin-top: 3pt; }
     .mt6 { margin-top: 6pt; }
 
     /* ── Print styles ── */
@@ -368,23 +368,15 @@
         <div class="skills-table">
           <div class="row">
             <span class="label"><strong>Languages:</strong></span>
-            <span class="value">Python, C++, JavaScript, Bash, MATLAB</span>
+            <span class="value">Python, C++, JavaScript, Bash, SQL, MATLAB</span>
           </div>
           <div class="row">
-            <span class="label"><strong>ML &amp; Perception:</strong></span>
-            <span class="value">PyTorch, TensorFlow, scikit-learn, OpenCV, YOLOv8 (Ultralytics), MediaPipe, faster-whisper</span>
+            <span class="label"><strong>ML &amp; AI:</strong></span>
+            <span class="value">PyTorch, TensorFlow, scikit-learn, OpenCV, CLIP, DenseNet, OpenAI &amp; Claude APIs, LLM tool-use &amp; agentic pipelines, RAG, NLP</span>
           </div>
           <div class="row">
-            <span class="label"><strong>Systems &amp; Backend:</strong></span>
-            <span class="value">FastAPI, WebSocket, asyncio, SQLite, Docker, Kubernetes (CKA certified), Jenkins, Git</span>
-          </div>
-          <div class="row">
-            <span class="label"><strong>AI &amp; APIs:</strong></span>
-            <span class="value">OpenAI &amp; Claude APIs, LLM tool-use &amp; agentic pipelines, RAG, CLIP, NLP, data visualization</span>
-          </div>
-          <div class="row">
-            <span class="label"><strong>Cloud &amp; Infra:</strong></span>
-            <span class="value">Azure, Grafana, Prometheus, InfluxDB, Cloudflare Zero Trust</span>
+            <span class="label"><strong>Systems &amp; Cloud:</strong></span>
+            <span class="value">FastAPI, WebSocket, Docker, Kubernetes (CKA certified), Jenkins, Git, Azure, Grafana, Prometheus, Cloudflare</span>
           </div>
         </div>
       </div>
@@ -399,19 +391,19 @@
             <span class="loc">Toronto, ON</span>
           </div>
           <div class="entry-sub">
-            <span class="role">Administrative Officer &mdash; Technical Systems, Political and Economic Affairs</span>
+            <span class="role">Administrative Officer &mdash; Technical Systems, Political &amp; Economic Affairs</span>
             <span class="period">Dec 2025 &ndash; Present</span>
           </div>
           <ul class="bullets">
-            <li>Designed and deployed a Python backend pipeline that ingests &sim;15 live government and media sources, classifies articles by topic using NLP, and generates structured summaries via LLM APIs &mdash; runs up to 5&times;/day with automated monitoring, error logging, and retry logic.</li>
-            <li>Built a searchable internal web dashboard serving as the team&rsquo;s primary interface for political-economic intelligence: stakeholder profiles, company activity, and archived briefings consolidated into a single queryable store.</li>
-            <li>Replaced a 2.5-hour manual briefing process with a 20-minute review workflow; automated daily digest distribution via a Telegram bot and secured internal access with Cloudflare Zero Trust.</li>
+            <li>Built a Python pipeline ingesting &sim;15 government and media sources, classifying articles by NLP topic and generating LLM-summarized digests &mdash; runs 5&times;/day with monitoring, logging, and retry logic.</li>
+            <li>Built a searchable internal dashboard consolidating stakeholder profiles, company activity, and archived briefings into one queryable store.</li>
+            <li>Cut a 2.5-hour manual briefing process to a 20-minute review workflow; automated Telegram digest distribution, secured with Cloudflare Zero Trust.</li>
           </ul>
         </div>
 
         <div class="entry mt4">
           <div class="entry-header">
-            <span class="org">Luxoft (Hyundai Motors &mdash; Infotainment Platform)</span>
+            <span class="org">Luxoft &mdash; Hyundai Motors Infotainment Platform</span>
             <span class="loc">Seongnam, South Korea</span>
           </div>
           <div class="entry-sub">
@@ -419,9 +411,8 @@
             <span class="period">Feb 2022 &ndash; Dec 2022</span>
           </div>
           <ul class="bullets">
-            <li>Owned the CI/CD pipeline for a large-scale vehicle infotainment platform: Jenkins builds, Maven dependency resolution, Docker image builds, and deployments to Kubernetes clusters spanning 20+ physical and cloud nodes &mdash; an environment where deployment failures have direct downstream impact on automotive software delivery.</li>
-            <li>Designed 10+ Grafana dashboards for build and deployment monitoring; implemented Bash-based alerting integrated with Azure Power Automate; made an architecture decision that averted a critical misconfiguration on a 128&thinsp;GB production server.</li>
-            <li>Maintained system reliability and infrastructure stability across rapid development cycles, providing the team predictable deployment cadence in a high-pressure embedded-software environment.</li>
+            <li>Owned the CI/CD pipeline for a vehicle infotainment platform &mdash; Jenkins builds, Docker images, and deployments across 20+ Kubernetes nodes.</li>
+            <li>Built 10+ Grafana dashboards and Bash-based alerting; caught an architecture misconfiguration on a 128&thinsp;GB production server before impact.</li>
           </ul>
         </div>
 
@@ -435,8 +426,7 @@
             <span class="period">Mar 2021 &ndash; Jul 2021</span>
           </div>
           <ul class="bullets">
-            <li>Designed and implemented a MATLAB algorithm to reconstruct 3D molecular structures from 2D cross-sectional HDF5 measurement data for the Korea Institute of Materials Science ($20K contract) &mdash; a perception problem of inferring spatial structure from incomplete, noisy 2D observations.</li>
-            <li>Developed interpolation and gap-filling tools to handle missing measurements in the input data; validated reconstruction fidelity against reference models and presented progress to client stakeholders weekly.</li>
+            <li>Built a MATLAB algorithm reconstructing 3D molecular structures from 2D cross-sectional HDF5 data for the Korea Institute of Materials Science ($20K contract), with interpolation to handle missing measurements.</li>
           </ul>
         </div>
       </div>
@@ -450,7 +440,7 @@
             <span class="org">Investment Operations Suite</span>
             <span class="loc">ops.djkimlab.com</span>
           </div>
-          <p class="project-body">A live back-office operations platform with five integrated modules &mdash; custodian reconciliation and break detection, NAV and performance reporting, multi-source data quality monitoring, trade-confirmation extraction, and double-entry trade-to-ledger accounting &mdash; running over a continuous market simulation anchored to real FRED market data. FastAPI and Next.js.</p>
+          <p class="project-body">Live back-office platform &mdash; five modules (reconciliation and break detection, NAV/performance reporting, data quality monitoring, trade-confirmation extraction, double-entry accounting) over a market simulation anchored to real FRED data. FastAPI, Next.js.</p>
         </div>
 
         <div class="entry mt4">
@@ -458,7 +448,7 @@
             <span class="org">Radiology AI</span>
             <span class="loc">radiology.djkimlab.com</span>
           </div>
-          <p class="project-body">A chest X-ray analysis platform over the NIH ChestX-ray14 corpus: DenseNet121 multi-label triage with FHIR patient context, Class Activation Map explainability, and CLIP semantic image search &mdash; three workflows served by one shared model.</p>
+          <p class="project-body">Chest X-ray platform over the NIH ChestX-ray14 corpus &mdash; DenseNet121 multi-label triage with FHIR context, Class Activation Map explainability, and CLIP semantic image search on one shared model.</p>
         </div>
 
         <div class="entry mt4">
@@ -466,21 +456,10 @@
             <span class="org">Autonomous AI Agent</span>
             <span class="loc">agent.djkimlab.com</span>
           </div>
-          <p class="project-body">A tool-using reasoning agent that plans, calls tools, observes results, and self-corrects until a task is solved. Tools include a calculator and a restricted, AST-validated Python sandbox; the full reasoning trace is streamed live. Built on LLM tool-calling.</p>
+          <p class="project-body">A tool-using agent that plans, acts, observes, and self-corrects until a task is solved; tools include a restricted, AST-validated Python sandbox. Built on LLM tool-calling.</p>
         </div>
 
-        <div class="entry mt4">
-          <div class="entry-header">
-            <span class="org">Reinforcement Learning Lab</span>
-            <span class="loc">rl.djkimlab.com</span>
-          </div>
-          <p class="project-body">A DQN agent learning Gymnasium control tasks with live metric streaming, and a Connect-4 arena pitting alpha-beta minimax, Monte Carlo Tree Search, and an AlphaZero-style self-play network. PyTorch.</p>
-        </div>
-
-        <div class="entry mt4">
-          <div class="project-title">Georgia Tech Coursework</div>
-          <p class="project-body">Deep Learning (CS 7643), Machine Learning (CS 7641), and ML for Trading (CS 7646) &mdash; implemented CNNs, RNNs, and attention from scratch in PyTorch; classical supervised, unsupervised, and reinforcement learning; and Q-learning trading strategy learners with a full market simulation framework. Full portfolio of live applications at djkimlab.com.</p>
-        </div>
+        <p class="project-body mt4" style="color: var(--muted);">More live at djkimlab.com &mdash; Reinforcement Learning Lab (DQN, MCTS, AlphaZero-style self-play), Audio Intelligence, Quant Trading Platform, and a RAG chatbot. Georgia Tech coursework: Deep Learning (CS 7643), Machine Learning (CS 7641), ML for Trading (CS 7646).</p>
       </div>
 
       <!-- ── EDUCATION ── -->
