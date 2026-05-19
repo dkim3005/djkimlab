@@ -42,6 +42,22 @@ const PROJECTS = [
     href: "https://ledger.djkimlab.com",
   },
   {
+    title: "Game AI Lab",
+    description:
+      "Play Connect-4 against three game-AI engines and watch each one search: depth-7 alpha-beta minimax, UCB1 Monte Carlo Tree Search, and an AlphaZero-style neural MCTS with a policy/value network trained entirely by self-play. Every move returns a full search breakdown — win probability, column preference, and node counts.",
+    tags: ["PyTorch", "MCTS", "AlphaZero", "Self-play RL", "Minimax", "Next.js"],
+    status: "",
+    href: "https://game.djkimlab.com",
+  },
+  {
+    title: "Autonomous AI Agent",
+    description:
+      "A tool-using reasoning agent that runs a plan → act → observe loop — calling tools, reading results, and self-correcting until it solves the task. Tools include a safe calculator and a restricted Python sandbox (AST-validated, no file or network access). The full reasoning trace is streamed live.",
+    tags: ["LLM", "Agentic AI", "Tool Use", "Sandbox", "FastAPI", "Next.js"],
+    status: "",
+    href: "https://agent.djkimlab.com",
+  },
+  {
     title: "RL Agent Playground",
     description:
       "Watch a DQN agent learn CartPole and Acrobot in real time — reward curves, epsilon decay, and loss streamed live via WebSocket. Configurable hidden size, learning rate, and episode budget with a target-network DQN and replay buffer.",
