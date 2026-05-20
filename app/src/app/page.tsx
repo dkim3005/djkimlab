@@ -1,5 +1,23 @@
 import Link from "next/link";
 import { getSiteLastUpdated } from "@/lib/site-meta";
+import { PROJECT_DETAILS } from "@/lib/projects";
+
+const PROJECT_SLUGS = new Set(PROJECT_DETAILS.map((p) => p.slug));
+
+// Each landing-page card maps to a project-detail slug. Add `slug` here
+// once and the card becomes clickable to /projects/<slug>.
+const SLUG_BY_TITLE: Record<string, string> = {
+  "Investment Operations Suite": "ops",
+  "Radiology AI": "radiology",
+  "Reinforcement Learning Lab": "rl",
+  "Autonomous AI Agent": "agent",
+  "Audio Intelligence": "audio",
+  "Responsive Lamp": "lamp",
+  "Quant Trading Platform": "quant",
+  "Consulate Chatbot": "chatbot",
+  "Deep Learning — CS 7643": "deep-learning-cs7643",
+  "ML for Trading — CS 7646": "ml-trading-cs7646",
+};
 
 const PROJECTS = [
   {
@@ -421,8 +439,12 @@ export default function Home() {
             {PROJECTS.map((project) => {
               const cat = CATEGORY[project.category] ?? CATEGORY["Coursework"];
               const isLive = project.href !== "#";
+              const detailSlug = SLUG_BY_TITLE[project.title];
+              const hasDetail = detailSlug && PROJECT_SLUGS.has(detailSlug);
               const cardClass = `group relative flex flex-col rounded-xl border border-card-border bg-card-bg overflow-hidden transition-all duration-200 ${
-                isLive
+                hasDetail
+                  ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
+                  : isLive
                   ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
                   : "opacity-80"
               }`;
@@ -499,19 +521,30 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
-                    {isLive && (
+                    {(hasDetail || isLive) && (
                       <div className="mt-4 pt-3 border-t border-card-border/60 flex items-center justify-between text-xs font-mono">
                         <span className="text-muted">
-                          {project.href.replace("https://", "")}
+                          {isLive ? project.href.replace("https://", "") : "case study"}
                         </span>
                         <span className="text-muted group-hover:text-accent transition-colors">
-                          Open ↗
+                          {hasDetail ? "Read more →" : "Open ↗"}
                         </span>
                       </div>
                     )}
                   </div>
                 </>
               );
+              if (hasDetail) {
+                return (
+                  <Link
+                    key={project.title}
+                    href={`/projects/${detailSlug}`}
+                    className={cardClass}
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
               return isLive ? (
                 <a
                   key={project.title}

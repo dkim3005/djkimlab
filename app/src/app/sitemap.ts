@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllWikiSlugs } from "@/lib/wiki";
 import { MLVIZ_TIMELINE } from "@/lib/mlviz";
+import { getAllProjectSlugs } from "@/lib/projects";
 
 const SITE_URL = "https://djkimlab.com";
 
@@ -22,6 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: node.demoStatus === "live" ? 0.7 : 0.4,
   }));
 
+  const projectRoutes: MetadataRoute.Sitemap = getAllProjectSlugs().map((slug) => ({
+    url: `${SITE_URL}/projects/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const wikiRoutes: MetadataRoute.Sitemap = getAllWikiSlugs().map((slug) => ({
     url: `${SITE_URL}/wiki/${slug}`,
     lastModified: now,
@@ -29,5 +37,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...mlvizRoutes, ...wikiRoutes];
+  return [...staticRoutes, ...projectRoutes, ...mlvizRoutes, ...wikiRoutes];
 }
