@@ -109,13 +109,13 @@ const PROJECTS = [
 //   violet — learning / agents / reasoning
 //   emerald — language and retrieval (NLP, LLM, RAG)
 //   slate  — coursework
-const BLUE = { chip: "text-blue-300 bg-blue-500/10 border-blue-500/25", bar: "bg-blue-500" };
-const CYAN = { chip: "text-cyan-300 bg-cyan-500/10 border-cyan-500/25", bar: "bg-cyan-500" };
-const VIOLET = { chip: "text-violet-300 bg-violet-500/10 border-violet-500/25", bar: "bg-violet-500" };
-const EMERALD = { chip: "text-emerald-300 bg-emerald-500/10 border-emerald-500/25", bar: "bg-emerald-500" };
-const SLATE = { chip: "text-slate-300 bg-slate-500/10 border-slate-500/25", bar: "bg-slate-600" };
+const BLUE = { chip: "text-blue-300 bg-blue-500/10 border-blue-500/25", bar: "bg-blue-500", watermark: "text-blue-300/35" };
+const CYAN = { chip: "text-cyan-300 bg-cyan-500/10 border-cyan-500/25", bar: "bg-cyan-500", watermark: "text-cyan-300/35" };
+const VIOLET = { chip: "text-violet-300 bg-violet-500/10 border-violet-500/25", bar: "bg-violet-500", watermark: "text-violet-300/35" };
+const EMERALD = { chip: "text-emerald-300 bg-emerald-500/10 border-emerald-500/25", bar: "bg-emerald-500", watermark: "text-emerald-300/35" };
+const SLATE = { chip: "text-slate-300 bg-slate-500/10 border-slate-500/25", bar: "bg-slate-600", watermark: "text-slate-300/35" };
 
-const CATEGORY: Record<string, { chip: string; bar: string }> = {
+const CATEGORY: Record<string, { chip: string; bar: string; watermark: string }> = {
   "Investment Ops": BLUE,
   "Quant Finance": BLUE,
   "Medical AI": CYAN,
@@ -407,7 +407,31 @@ export default function Home() {
               }`;
               const cardContent = (
                 <>
-                  <div className={`h-1 w-full ${cat.bar}`} />
+                  {/* Browser-window thumbnail — visual proof without a screenshot */}
+                  <div className="relative h-28 overflow-hidden border-b border-card-border">
+                    <div className={`absolute inset-0 ${cat.bar} opacity-[0.08]`} />
+                    <div
+                      className="absolute inset-0 opacity-70"
+                      style={{
+                        backgroundImage:
+                          "radial-gradient(circle, rgba(148,163,184,0.09) 1px, transparent 1px)",
+                        backgroundSize: "14px 14px",
+                      }}
+                    />
+                    <div className="relative flex items-center gap-1.5 border-b border-card-border/60 bg-background/40 px-3 py-2 backdrop-blur-sm">
+                      <span className="h-2 w-2 rounded-full bg-red-500/40" />
+                      <span className="h-2 w-2 rounded-full bg-yellow-500/40" />
+                      <span className="h-2 w-2 rounded-full bg-green-500/40" />
+                      <span className="ml-2 truncate font-mono text-[10px] text-muted">
+                        {isLive ? project.href.replace("https://", "") : `coursework · ${project.status}`}
+                      </span>
+                    </div>
+                    <div className="relative flex h-[calc(100%-2rem)] items-center justify-center px-4">
+                      <span className={`text-center font-mono text-sm font-bold uppercase tracking-[0.2em] ${cat.watermark}`}>
+                        {project.category}
+                      </span>
+                    </div>
+                  </div>
                   <div className="flex flex-col flex-1 p-6">
                     <div className="flex items-center justify-between mb-3">
                       <span
