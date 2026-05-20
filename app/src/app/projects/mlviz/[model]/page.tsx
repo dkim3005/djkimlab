@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LinearRegressionDemo from "../components/LinearRegressionDemo";
+import PerceptronDemo from "../components/PerceptronDemo";
+import KMeansDemo from "../components/KMeansDemo";
 import { getMlvizNode, MLVIZ_CATEGORY_META, MLVIZ_TIMELINE } from "@/lib/mlviz";
 
 export function generateStaticParams() {
@@ -98,6 +100,10 @@ export default async function MlVizModelPage({
         <div>
           {node.modelSlug === "linear-regression" ? (
             <LinearRegressionDemo />
+          ) : node.modelSlug === "perceptron" ? (
+            <PerceptronDemo />
+          ) : node.modelSlug === "k-means" ? (
+            <KMeansDemo />
           ) : (
             <div className="rounded-3xl border border-card-border bg-card-bg/70 p-8">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-card-border bg-background/60 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-muted">
