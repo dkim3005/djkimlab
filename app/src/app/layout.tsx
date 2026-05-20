@@ -74,6 +74,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="djkimlab wiki"
+          href="/wiki/feed.xml"
+        />
+      </head>
       <body className="min-h-full">
         <script
           type="application/ld+json"

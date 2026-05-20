@@ -65,7 +65,16 @@ export default function WikiIndex() {
 
       <main className="pt-24 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl font-bold mb-2">Wiki</h1>
+          <div className="flex flex-wrap items-baseline justify-between gap-3 mb-2">
+            <h1 className="text-3xl font-bold">Wiki</h1>
+            <a
+              href="/wiki/feed.xml"
+              className="text-xs font-mono text-muted hover:text-accent transition-colors"
+              title="Atom feed"
+            >
+              feed.xml ↗
+            </a>
+          </div>
           <p className="text-muted mb-12">
             Technical knowledge base — fundamentals, tools, and architecture decisions.
           </p>
