@@ -134,21 +134,51 @@ export default async function WikiPage({
       <main className="pt-24 pb-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_220px] gap-12">
           <div className="max-w-3xl mx-auto xl:mx-0 w-full">
-            <div className="flex items-center gap-2 text-sm text-muted mb-8">
-              <Link href="/wiki" className="hover:text-foreground transition-colors">
-                Wiki
-              </Link>
-              {slug.map((part, i) => (
-                <span key={i} className="flex items-center gap-2">
-                  <span>/</span>
-                  {i < slug.length - 1 ? (
-                    <span>{part}</span>
-                  ) : (
-                    <span className="text-foreground">{entry.title}</span>
+            {(() => {
+              // Drop the leading "topics" / "decisions" segment from the
+              // breadcrumb — it adds no information to a reader. Render the
+              // remaining path segments as humanized labels ("ai-ml" → "AI ML").
+              const sectionLabels: Record<string, string> = {
+                topics: "Topics",
+                decisions: "Decisions",
+              };
+              const ACRONYMS: Record<string, string> = {
+                "ai-ml": "AI / ML",
+                nlp: "NLP",
+                rnn: "RNN",
+                cnn: "CNN",
+                llm: "LLM",
+              };
+              const humanize = (s: string) =>
+                ACRONYMS[s] ??
+                s
+                  .split("-")
+                  .map((w) => (w.length <= 3 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+                  .join(" ");
+              const section = slug[0];
+              const middle = slug.slice(1, -1);
+              return (
+                <div className="flex flex-wrap items-center gap-2 text-sm text-muted mb-8">
+                  <Link href="/wiki" className="hover:text-foreground transition-colors">
+                    Wiki
+                  </Link>
+                  {section && sectionLabels[section] && (
+                    <>
+                      <span>/</span>
+                      <span>{sectionLabels[section]}</span>
+                    </>
                   )}
-                </span>
-              ))}
-            </div>
+                  {middle.map((part, i) => (
+                    <span key={i} className="flex items-center gap-2">
+                      <span>/</span>
+                      <span>{humanize(part)}</span>
+                    </span>
+                  ))}
+                  <span>/</span>
+                  <span className="text-foreground">{entry.title}</span>
+                </div>
+              );
+            })()}
 
             <h1 className="text-3xl font-bold mb-3">{entry.title}</h1>
             <div className="flex flex-wrap items-center gap-3 mb-8">

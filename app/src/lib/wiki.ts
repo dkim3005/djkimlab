@@ -152,16 +152,30 @@ export function getWikiSiblings(currentSlug: string): {
 }
 
 export function getWikiBacklinks(currentSlug: string): WikiSibling[] {
-  // Find any entry whose body contains a link to this slug's route. Match
-  // both absolute (/wiki/<slug>) and relative (<file>.md / ../file.md) forms.
-  const target = `/wiki/${currentSlug}`;
+  // Find any entry whose body links to this slug. We check two specific
+  // forms (any other guess is a false-positive risk):
+  //   1. An absolute markdown link to `/wiki/<currentSlug>` (with optional
+  //      trailing `)`, `#`, `"`, or whitespace).
+  //   2. A markdown link target ending in the exact relative path with a
+  //      delimiter on the left. We match `(`, `/`, or whitespace before the
+  //      filename so e.g. "perceptron.md" does not also pick up
+  //      "mlp-perceptron.md".
+  const route = `/wiki/${currentSlug}`;
   const tail = currentSlug.split("/").pop() ?? "";
   const mdTail = tail ? `${tail}.md` : null;
+
+  const absoluteRe = new RegExp(
+    `${route.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?=[)#"\\s])`,
+  );
+  const relativeRe = mdTail
+    ? new RegExp(`[(\\s/]${mdTail.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}(?=[)#"\\s])`)
+    : null;
+
   const hits: WikiSibling[] = [];
   for (const entry of allEntries()) {
     if (entry.slug === currentSlug) continue;
     const body = entry.content;
-    if (body.includes(target) || (mdTail && body.includes(mdTail))) {
+    if (absoluteRe.test(body) || (relativeRe && relativeRe.test(body))) {
       hits.push({ slug: entry.slug, title: entry.title });
     }
   }
