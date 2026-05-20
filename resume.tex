@@ -1,0 +1,84 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.55in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1.5pt, topsep=2pt, parsep=0pt}
+\titleformat{\section}{\normalsize\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Dongjin Kim}} \\[3pt]
+    Toronto, ON \enspace $|$ \enspace Permanent Resident \enspace $|$ \enspace 343-368-2338 \enspace $|$ \enspace \href{mailto:djkim3005@gmail.com}{djkim3005@gmail.com} \enspace $|$ \enspace \href{https://www.linkedin.com/in/dongjink}{linkedin.com/in/dongjink}
+\end{center}
+
+\section*{Technical Skills}
+\textbf{Languages:} Python, C++, JavaScript, Bash, MATLAB \\
+\textbf{ML \& Perception:} PyTorch, TensorFlow, scikit-learn, OpenCV, YOLOv8 (Ultralytics), MediaPipe, faster-whisper \\
+\textbf{Systems \& Backend:} FastAPI, WebSocket, asyncio, SQLite, Docker, Kubernetes (CKA certified), Jenkins, Git \\
+\textbf{AI \& APIs:} OpenAI GPT-4o-mini, Claude API, LLM tool-use pipelines, NLP, data visualization \\
+\textbf{Cloud \& Infra:} Azure, Grafana, Prometheus, InfluxDB, Cloudflare Zero Trust
+
+\section*{Experience}
+
+\textbf{Consulate General of the Republic of Korea in Toronto} \hfill Toronto, ON \\
+\textit{Administrative Officer -- Technical Systems, Political and Economic Affairs} \hfill Dec 2025 -- Present
+\begin{itemize}
+    \item Designed and deployed a Python backend pipeline that ingests \textasciitilde15 live government and media sources, classifies articles by topic using NLP, and generates structured summaries via LLM APIs -- runs up to 5$\times$/day with automated monitoring, error logging, and retry logic.
+    \item Built a searchable internal web dashboard serving as the team's primary interface for political-economic intelligence: stakeholder profiles, company activity, and archived briefings consolidated into a single queryable store.
+    \item Replaced a 2.5-hour manual briefing process with a 20-minute review workflow; automated daily digest distribution via a Telegram bot and secured internal access with Cloudflare Zero Trust.
+\end{itemize}
+
+\vspace{4pt}
+\textbf{Luxoft (Hyundai Motors -- Infotainment Platform)} \hfill Seongnam, South Korea \\
+\textit{DevOps Engineer} \hfill Feb 2022 -- Dec 2022
+\begin{itemize}
+    \item Owned the CI/CD pipeline for a large-scale vehicle infotainment platform: Jenkins builds, Maven dependency resolution, Docker image builds, and deployments to Kubernetes clusters spanning 20+ physical and cloud nodes -- an environment where deployment failures have direct downstream impact on automotive software delivery.
+    \item Designed 10+ Grafana dashboards for build and deployment monitoring; implemented Bash-based alerting integrated with Azure Power Automate; made an architecture decision that averted a critical misconfiguration on a 128\,GB production server.
+    \item Maintained system reliability and infrastructure stability across rapid development cycles, providing the team predictable deployment cadence in a high-pressure embedded-software environment.
+\end{itemize}
+
+\vspace{4pt}
+\textbf{CSI Vision} \hfill Suwon, South Korea \\
+\textit{Software Application Engineer} \hfill Mar 2021 -- Jul 2021
+\begin{itemize}
+    \item Designed and implemented a MATLAB algorithm to reconstruct 3D molecular structures from 2D cross-sectional HDF5 measurement data for the Korea Institute of Materials Science (\$20K contract) -- a perception problem of inferring spatial structure from incomplete, noisy 2D observations.
+    \item Developed interpolation and gap-filling tools to handle missing measurements in the input data; validated reconstruction fidelity against reference models and presented progress to client stakeholders weekly.
+\end{itemize}
+
+\section*{Projects}
+
+\textbf{Deep Learning -- Georgia Tech CS 7643} \\
+Implemented CNNs, RNNs, and attention mechanisms from scratch in PyTorch for image classification, sequence modelling, and transfer learning. Reproduced architectures from foundational papers and benchmarked against pretrained baselines; developed an applied understanding of how architectural choices affect representation quality.
+
+\vspace{4pt}
+\textbf{Machine Learning -- Georgia Tech CS 7641} \\
+Implemented supervised learning (decision trees, AdaBoost, SVMs, k-NN), unsupervised learning (k-means, EM/GMM, PCA), and reinforcement learning (Q-learning, value iteration, policy iteration) in Python; designed controlled experiments to isolate the effect of model complexity, feature space, and training set size.
+
+\vspace{4pt}
+\textbf{ML for Trading -- Georgia Tech CS 7646} \\
+Built a full market simulation framework in Python implementing Q-learning and random forest-based strategy learners; evaluated portfolio performance using Sharpe ratio, cumulative return, and drawdown metrics against buy-and-hold baselines.
+
+\section*{Education}
+\textbf{Georgia Institute of Technology} \hfill Atlanta, GA / Online \\
+\textit{M.S. in Computer Science (Artificial Intelligence specialization)} \hfill May 2026 \\
+Relevant coursework: Machine Learning (A), Deep Learning, ML for Trading (A), Knowledge-Based AI
+
+\vspace{2pt}
+\textbf{Korea National Open University} \enspace -- \enspace B.S. in Computer Science \hfill 2022 \\
+\textbf{Kyung Hee University} \enspace -- \enspace B.B.A. in Business Administration \hfill 2017
+
+\section*{Certifications}
+Certified Kubernetes Administrator (CKA), 2023 \enspace $\cdot$ \enspace TensorFlow Developer Certificate, 2021
+
+\end{document}

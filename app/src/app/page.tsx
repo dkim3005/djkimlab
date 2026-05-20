@@ -1,4 +1,23 @@
 import Link from "next/link";
+import { getSiteLastUpdated } from "@/lib/site-meta";
+import { PROJECT_DETAILS } from "@/lib/projects";
+
+const PROJECT_SLUGS = new Set(PROJECT_DETAILS.map((p) => p.slug));
+
+// Each landing-page card maps to a project-detail slug. Add `slug` here
+// once and the card becomes clickable to /projects/<slug>.
+const SLUG_BY_TITLE: Record<string, string> = {
+  "Investment Operations Suite": "ops",
+  "Radiology AI": "radiology",
+  "Reinforcement Learning Lab": "rl",
+  "Autonomous AI Agent": "agent",
+  "Audio Intelligence": "audio",
+  "Responsive Lamp": "lamp",
+  "Quant Trading Platform": "quant",
+  "Consulate Chatbot": "chatbot",
+  "Deep Learning — CS 7643": "deep-learning-cs7643",
+  "ML for Trading — CS 7646": "ml-trading-cs7646",
+};
 
 const PROJECTS = [
   {
@@ -10,6 +29,7 @@ const PROJECTS = [
     tags: ["Python", "FastAPI", "Investment Operations", "Live Simulation", "FRED", "Next.js"],
     status: "",
     href: "https://ops.djkimlab.com",
+    metric: "5 ops modules · 1 live market sim",
   },
   {
     title: "Radiology AI",
@@ -20,6 +40,7 @@ const PROJECTS = [
     tags: ["PyTorch", "DenseNet121", "CLIP", "Grad-CAM", "FHIR", "Next.js"],
     status: "",
     href: "https://radiology.djkimlab.com",
+    metric: "14 conditions · 112k X-rays · 3 workflows on 1 model",
   },
   {
     title: "Reinforcement Learning Lab",
@@ -30,6 +51,7 @@ const PROJECTS = [
     tags: ["PyTorch", "DQN", "MCTS", "AlphaZero", "Gymnasium", "Next.js"],
     status: "",
     href: "https://rl.djkimlab.com",
+    metric: "3 search algorithms · play live in browser",
   },
   {
     title: "Autonomous AI Agent",
@@ -40,6 +62,7 @@ const PROJECTS = [
     tags: ["LLM", "Agentic AI", "Tool Use", "Sandbox", "FastAPI", "Next.js"],
     status: "",
     href: "https://agent.djkimlab.com",
+    metric: "AST-sandboxed Python · self-corrects · streamed trace",
   },
   {
     title: "Audio Intelligence",
@@ -50,6 +73,7 @@ const PROJECTS = [
     tags: ["faster-whisper", "DistilBERT", "NLP", "Sentiment", "FastAPI", "Next.js"],
     status: "",
     href: "https://audio.djkimlab.com",
+    metric: "Speech → 4 structured outputs in one pass",
   },
   {
     title: "Responsive Lamp",
@@ -60,6 +84,7 @@ const PROJECTS = [
     tags: ["MediaPipe", "YOLOv8", "Three.js", "GPT-4o-mini", "WebSocket", "FastAPI"],
     status: "",
     href: "https://lamp.djkimlab.com",
+    metric: "6-DOF lamp · real-time gaze + object memory",
   },
   {
     title: "Quant Trading Platform",
@@ -70,6 +95,7 @@ const PROJECTS = [
     tags: ["Python", "FastAPI", "HMM", "FinBERT", "FRED", "IBKR", "TimescaleDB", "Streamlit"],
     status: "",
     href: "https://quant.djkimlab.com",
+    metric: "Multifactor + HMM regime · 15-min paper-trade cycle",
   },
   {
     title: "Consulate Chatbot",
@@ -80,6 +106,7 @@ const PROJECTS = [
     tags: ["Python", "FastAPI", "OpenAI", "RAG", "BM25", "SSE"],
     status: "Korean only",
     href: "https://chatbot.djkimlab.com",
+    metric: "216 official posts · BM25 + embeddings hybrid",
   },
   {
     title: "Deep Learning — CS 7643",
@@ -90,6 +117,7 @@ const PROJECTS = [
     tags: ["PyTorch", "CNN", "RNN", "Attention", "Transfer Learning"],
     status: "Georgia Tech",
     href: "#",
+    metric: "",
   },
   {
     title: "ML for Trading — CS 7646",
@@ -100,6 +128,7 @@ const PROJECTS = [
     tags: ["Python", "Q-Learning", "Random Forest", "Sharpe Ratio", "RL"],
     status: "Georgia Tech",
     href: "#",
+    metric: "",
   },
 ];
 
@@ -214,6 +243,7 @@ const NAV_LINKS = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Wiki", href: "/wiki" },
+  { label: "Contact", href: "#contact" },
 ];
 
 // Same 5-color semantic system used by the project categories.
@@ -226,6 +256,7 @@ const SKILL_COLORS: Record<string, string> = {
 };
 
 export default function Home() {
+  const lastUpdated = getSiteLastUpdated();
   return (
     <div className="flex flex-col min-h-screen relative">
       {/* Navigation */}
@@ -265,12 +296,20 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
                 Dongjin Kim
               </h1>
-              <p className="text-xl text-muted leading-relaxed mb-6">
-                AI & ML Engineer — 8 live production systems spanning
-                investment ops, medical AI, agents, and reinforcement learning.
+              <p className="text-xl leading-relaxed mb-6">
+                <span className="text-foreground">
+                  I replaced a 2.5-hour daily diplomatic briefing process at
+                  the Korean Consulate with a 20-minute one
+                </span>
+                <span className="text-muted">
+                  {" "}— and 7 other live production AI systems span investment
+                  ops, medical imaging, agents, and reinforcement learning.
+                </span>
                 <br />
-                Currently building government AI tooling at the Korean
-                Consulate in Toronto. M.S. Computer Science (AI), Georgia Tech.
+                <span className="text-muted text-base">
+                  M.S. Computer Science (AI), Georgia Tech ·
+                  CKA-certified DevOps background · Toronto, ON.
+                </span>
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {[
@@ -400,8 +439,12 @@ export default function Home() {
             {PROJECTS.map((project) => {
               const cat = CATEGORY[project.category] ?? CATEGORY["Coursework"];
               const isLive = project.href !== "#";
+              const detailSlug = SLUG_BY_TITLE[project.title];
+              const hasDetail = detailSlug && PROJECT_SLUGS.has(detailSlug);
               const cardClass = `group relative flex flex-col rounded-xl border border-card-border bg-card-bg overflow-hidden transition-all duration-200 ${
-                isLive
+                hasDetail
+                  ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
+                  : isLive
                   ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
                   : "opacity-80"
               }`;
@@ -460,6 +503,11 @@ export default function Home() {
                     <p className="text-sm text-slate-300 leading-relaxed mb-3">
                       {project.tagline}
                     </p>
+                    {project.metric && (
+                      <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-accent">
+                        {project.metric}
+                      </p>
+                    )}
                     <p className="text-[13px] text-muted leading-relaxed mb-4 flex-1">
                       {project.description}
                     </p>
@@ -473,19 +521,30 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
-                    {isLive && (
+                    {(hasDetail || isLive) && (
                       <div className="mt-4 pt-3 border-t border-card-border/60 flex items-center justify-between text-xs font-mono">
                         <span className="text-muted">
-                          {project.href.replace("https://", "")}
+                          {isLive ? project.href.replace("https://", "") : "case study"}
                         </span>
                         <span className="text-muted group-hover:text-accent transition-colors">
-                          Open ↗
+                          {hasDetail ? "Read more →" : "Open ↗"}
                         </span>
                       </div>
                     )}
                   </div>
                 </>
               );
+              if (hasDetail) {
+                return (
+                  <Link
+                    key={project.title}
+                    href={`/projects/${detailSlug}`}
+                    className={cardClass}
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
               return isLive ? (
                 <a
                   key={project.title}
@@ -581,13 +640,93 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hire CTA */}
+      <section id="contact" className="py-20 px-6 border-t border-card-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl border border-accent/30 bg-card-bg/60 p-8 sm:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-start">
+              <div>
+                <p className="font-mono text-xs uppercase tracking-widest text-accent mb-3">
+                  $ status --open-to-work
+                </p>
+                <h2 className="text-2xl font-bold mb-3">Currently open to</h2>
+                <ul className="space-y-2 text-sm text-muted">
+                  <li className="flex gap-2">
+                    <span className="text-accent shrink-0 mt-0.5">›</span>
+                    <span>
+                      <span className="text-foreground">ML / AI Engineer</span> roles —
+                      production systems, LLM pipelines, applied research engineering.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-accent shrink-0 mt-0.5">›</span>
+                    <span>
+                      <span className="text-foreground">MLOps / AI Infrastructure</span> roles —
+                      CKA-certified, comfortable owning the path from train run to serving.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-accent shrink-0 mt-0.5">›</span>
+                    <span>
+                      Consulting on shipping production AI systems on a small team budget.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-accent shrink-0 mt-0.5">›</span>
+                    <span>
+                      Based in Toronto, ON (PR) — remote · hybrid · relocation all on the table.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div className="flex flex-col gap-3 md:items-end md:min-w-[200px]">
+                <a
+                  href="mailto:djkim3005@gmail.com"
+                  className="rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover text-center"
+                >
+                  djkim3005@gmail.com
+                </a>
+                <a
+                  href="https://linkedin.com/in/dongjink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-card-border px-5 py-2.5 text-sm text-muted hover:text-foreground hover:border-accent/50 transition-all text-center"
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href="/resume.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-card-border px-5 py-2.5 text-sm text-muted hover:text-foreground hover:border-accent/50 transition-all text-center"
+                >
+                  Resume ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-10 px-6 border-t border-card-border mt-auto">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted font-mono">
-            © 2026 Dongjin Kim · Built with Next.js & Tailwind
+            © 2026 Dongjin Kim · Built with Next.js & Tailwind · Last updated {lastUpdated}
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/now"
+              className="text-xs text-muted hover:text-foreground transition-colors"
+            >
+              Now
+            </Link>
+            <Link
+              href="/colophon"
+              className="text-xs text-muted hover:text-foreground transition-colors"
+            >
+              Colophon
+            </Link>
             <a
               href="https://github.com/dkim3005"
               target="_blank"

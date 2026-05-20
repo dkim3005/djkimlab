@@ -115,7 +115,7 @@ export const MLVIZ_TIMELINE: MlvizNode[] = [
     modelSlug: "k-means",
     category: "ml",
     wikiHref: "/wiki/topics/ai-ml/unsupervised/clustering/k-means",
-    demoStatus: "planned",
+    demoStatus: "live",
   },
   {
     year: 1958,
@@ -128,7 +128,7 @@ export const MLVIZ_TIMELINE: MlvizNode[] = [
     modelSlug: "perceptron",
     category: "ml",
     wikiHref: "/wiki/topics/ai-ml/deep-learning/fundamentals/perceptron",
-    demoStatus: "planned",
+    demoStatus: "live",
   },
   {
     year: 1967,
