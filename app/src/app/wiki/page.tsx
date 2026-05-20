@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getWikiEntries, WikiEntry } from "@/lib/wiki";
+import { getWikiEntries, WikiEntry, getWikiSearchIndex } from "@/lib/wiki";
+import WikiSearch from "@/app/components/WikiSearch";
 
 export const metadata: Metadata = {
   title: "Wiki",
@@ -29,6 +30,7 @@ export default function WikiIndex() {
   const topics = getWikiEntries("topics");
   const decisions = getWikiEntries("decisions");
   const grouped = groupByCategory(topics);
+  const searchIndex = getWikiSearchIndex();
 
   return (
     <div className="min-h-screen">
@@ -38,7 +40,8 @@ export default function WikiIndex() {
           <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
             djkimlab<span className="text-accent">.com</span>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            <WikiSearch index={searchIndex} />
             <Link href="/#projects" className="text-sm text-muted hover:text-foreground transition-colors">
               Projects
             </Link>
