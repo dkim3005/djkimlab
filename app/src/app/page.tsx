@@ -297,16 +297,17 @@ export default function Home() {
                 Dongjin Kim
               </h1>
               <p className="text-xl leading-relaxed mb-6 text-muted">
-                AI & ML Engineer.{" "}
                 <span className="text-foreground">
-                  Eight small AI systems running on a single laptop in my
-                  apartment, fronted by a Cloudflare Tunnel
+                  AI & ML Engineer — MLOps, LLM pipelines, full-stack ML
+                  applications.
                 </span>
-                {" "}— investment ops, medical imaging, agents, RL, NLP.
                 <br />
                 <span className="text-base">
-                  M.S. Computer Science (AI), Georgia Tech ·
-                  CKA-certified DevOps background · Toronto, ON.
+                  M.S. Computer Science (AI), Georgia Tech · CKA-certified ·
+                  previously DevOps at Hyundai infotainment platform
+                  (Kubernetes across 20+ nodes).
+                  <br />
+                  Toronto, ON.
                 </span>
               </p>
               <div className="flex flex-wrap gap-2 mb-8">

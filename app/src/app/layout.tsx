@@ -5,7 +5,7 @@ import "./globals.css";
 const SITE_URL = "https://djkimlab.com";
 const TITLE = "Dongjin Kim — AI & Infrastructure Engineer";
 const DESCRIPTION =
-  "Portfolio and technical wiki by Dongjin Kim. Eight live AI/ML systems running on a single laptop — investment ops, medical AI, agents, RL, and LLM pipelines.";
+  "Portfolio and technical wiki by Dongjin Kim. AI & ML Engineer — MLOps, LLM pipelines, and full-stack ML applications. M.S. CS (AI), Georgia Tech.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

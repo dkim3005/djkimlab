@@ -59,8 +59,8 @@ export default async function Image() {
               maxWidth: 980,
             }}
           >
-            AI & ML Engineer · 8 live systems on one laptop —
-            investment ops · medical AI · LLM agents.
+            AI & ML Engineer — MLOps · LLM pipelines · full-stack ML
+            applications.
           </div>
         </div>
 
