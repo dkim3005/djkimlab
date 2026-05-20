@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# djkimlab.com — Next.js app
 
-## Getting Started
+Source for [djkimlab.com](https://djkimlab.com) — Dongjin Kim's
+portfolio, project showcase, and technical wiki.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack, fully SSG except the
+  `opengraph-image` route handler).
+- **Tailwind v4** with CSS variables for the dark palette.
+- **react-markdown + remark-gfm + rehype-highlight** for the wiki —
+  markdown lives under `/wiki/` at the repo root and is loaded at build
+  time via `src/lib/wiki.ts`.
+- Self-hosted Geist / Geist Mono via `@font-face` in `globals.css`
+  (`public/fonts/`).
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
+npm run build        # static export of every route into .next/
+npm run start        # production server on :3000
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app is self-hosted on a personal server. `keep-alive.sh` runs
+`npm run start` in an infinite loop so a crash restarts the server
+within a couple of seconds. The public hostname `djkimlab.com` reaches
+the local port via a Cloudflare Tunnel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To deploy a new commit:
 
-## Learn More
+```bash
+git pull origin main
+cd app && npm install && npm run build
+# Then kill the existing next-server PID on :3000; keep-alive picks up
+# the new build automatically on its next loop iteration.
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/app/
+├── layout.tsx                        # root metadata, JSON-LD, star canvas
+├── page.tsx                          # landing — projects + experience
+├── opengraph-image.tsx               # 1200x630 dynamic OG card
+├── sitemap.ts / robots.ts            # SEO surface
+├── components/StarField.tsx          # background canvas (a11y-aware)
+├── projects/mlviz/                   # interactive ML timeline + demos
+└── wiki/                             # markdown-backed wiki + topic pages
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture decisions
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [`../wiki/decisions/`](../wiki/decisions) for the ADRs behind the
+stack choices (Next.js + Tailwind v4, TypeScript, CSS approach).
