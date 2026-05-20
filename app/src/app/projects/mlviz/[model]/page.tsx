@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LinearRegressionDemo from "../components/LinearRegressionDemo";
@@ -7,6 +8,30 @@ export function generateStaticParams() {
   return MLVIZ_TIMELINE.map((node) => ({
     model: node.modelSlug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ model: string }>;
+}): Promise<Metadata> {
+  const { model } = await params;
+  const node = getMlvizNode(model);
+  if (!node) return {};
+  const title = `${node.title} (${node.year})`;
+  const description = `${node.subtitle}. ${node.description}`;
+  const canonical = `/projects/mlviz/${node.modelSlug}`;
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: `${title} · ML Visualizer`,
+      description,
+      url: canonical,
+    },
+  };
 }
 
 export default async function MlVizModelPage({

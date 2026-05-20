@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { MLVIZ_CATEGORY_META, MLVIZ_TIMELINE } from "@/lib/mlviz";
+
+export const metadata: Metadata = {
+  title: "ML Visualizer",
+  description:
+    "Interactive timeline of the models that shaped machine learning — from least squares to RLHF. Each node connects a runnable demo to the wiki entry behind it.",
+  alternates: { canonical: "/projects/mlviz" },
+  openGraph: {
+    title: "ML Visualizer · djkimlab",
+    description:
+      "Interactive timeline of the models that shaped machine learning — from least squares to RLHF.",
+    url: "/projects/mlviz",
+  },
+};
 
 export default function MlVizTimelinePage() {
   const liveCount = MLVIZ_TIMELINE.filter(

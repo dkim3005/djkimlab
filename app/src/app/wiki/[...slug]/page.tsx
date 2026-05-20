@@ -1,8 +1,46 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getWikiEntry, getAllWikiSlugs } from "@/lib/wiki";
+
+function summarize(markdown: string, max = 160): string {
+  const stripped = markdown
+    .replace(/^#.*$/gm, "")
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[*_`>#-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (stripped.length <= max) return stripped;
+  return stripped.slice(0, max - 1).trimEnd() + "…";
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const slugPath = slug.join("/");
+  const entry = getWikiEntry(slugPath);
+  if (!entry) return {};
+  const description = summarize(entry.content);
+  const canonical = `/wiki/${slugPath}`;
+  return {
+    title: entry.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: entry.title,
+      description,
+      url: canonical,
+    },
+    twitter: { card: "summary_large_image", title: entry.title, description },
+  };
+}
 
 function wikiComponents(currentSlug: string): Components {
   const currentDir = "/wiki/" + currentSlug.split("/").slice(0, -1).join("/");
@@ -57,12 +95,23 @@ export default async function WikiPage({
             djkimlab<span className="text-accent">.com</span>
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/wiki" className="text-sm text-muted hover:text-foreground transition-colors">
+            <Link href="/#projects" className="text-sm text-muted hover:text-foreground transition-colors">
+              Projects
+            </Link>
+            <Link href="/#experience" className="text-sm text-muted hover:text-foreground transition-colors">
+              Experience
+            </Link>
+            <Link href="/wiki" className="text-sm text-foreground font-medium">
               Wiki
             </Link>
-            <Link href="/research" className="text-sm text-muted hover:text-foreground transition-colors">
-              Research
-            </Link>
+            <a
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-3 py-1.5 rounded-md border border-card-border text-muted hover:text-foreground hover:border-accent/50 transition-all"
+            >
+              Resume ↗
+            </a>
           </div>
         </div>
       </nav>
