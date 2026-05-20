@@ -1,0 +1,10 @@
+# Defensive root-level ignore — the real Node project lives in app/.
+# If npm or another tool ever runs from this directory by mistake, keep its
+# artifacts out of git. (See app/.gitignore for the real ignore rules.)
+node_modules/
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.DS_Store
+.vercel/

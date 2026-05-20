@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { MLVIZ_CATEGORY_META, MLVIZ_TIMELINE } from "@/lib/mlviz";
+
+export const metadata: Metadata = {
+  title: "ML Visualizer",
+  description:
+    "Interactive timeline of the models that shaped machine learning — from least squares to RLHF. Each node connects a runnable demo to the wiki entry behind it.",
+  alternates: { canonical: "/projects/mlviz" },
+  openGraph: {
+    title: "ML Visualizer · djkimlab",
+    description:
+      "Interactive timeline of the models that shaped machine learning — from least squares to RLHF.",
+    url: "/projects/mlviz",
+  },
+};
 
 export default function MlVizTimelinePage() {
   const liveCount = MLVIZ_TIMELINE.filter(
@@ -86,7 +100,11 @@ export default function MlVizTimelinePage() {
                 <p className="font-mono text-xs text-muted">{node.year}</p>
                 <Link
                   href={`/projects/mlviz/${node.modelSlug}`}
-                  className="mt-2 block rounded-2xl border border-card-border bg-background/70 p-4 transition-colors hover:border-accent/40"
+                  className={`mt-2 block rounded-2xl border bg-background/70 p-4 transition-colors ${
+                    node.demoStatus === "live"
+                      ? "border-accent/40 hover:border-accent/70"
+                      : "border-card-border opacity-65 hover:opacity-100 hover:border-card-border"
+                  }`}
                 >
                   <div className="mb-2 flex flex-wrap items-center gap-2">
                     <span
@@ -94,9 +112,16 @@ export default function MlVizTimelinePage() {
                     >
                       {category.label}
                     </span>
-                    <span className="text-[11px] font-mono text-muted">
-                      {node.demoStatus === "live" ? "live" : "planned"}
-                    </span>
+                    {node.demoStatus === "live" ? (
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-accent">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                        live demo
+                      </span>
+                    ) : (
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-muted">
+                        roadmap
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-lg font-semibold">{node.title}</h3>
                   <p className="mt-1 text-sm text-accent">{node.subtitle}</p>
@@ -140,7 +165,11 @@ export default function MlVizTimelinePage() {
                     </div>
                     <Link
                       href={`/projects/mlviz/${node.modelSlug}`}
-                      className="block rounded-2xl border border-card-border bg-background/70 p-5 transition-colors hover:border-accent/40"
+                      className={`block rounded-2xl border bg-background/70 p-5 transition-colors ${
+                        node.demoStatus === "live"
+                          ? "border-accent/40 hover:border-accent/70"
+                          : "border-card-border opacity-65 hover:opacity-100 hover:border-card-border"
+                      }`}
                     >
                       <div className="mb-3 flex flex-wrap items-center gap-2">
                         <span
@@ -148,9 +177,16 @@ export default function MlVizTimelinePage() {
                         >
                           {category.label}
                         </span>
-                        <span className="text-[11px] font-mono text-muted">
-                          {node.demoStatus === "live" ? "live" : "planned"}
-                        </span>
+                        {node.demoStatus === "live" ? (
+                          <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-accent">
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                            live demo
+                          </span>
+                        ) : (
+                          <span className="text-[11px] font-mono uppercase tracking-wider text-muted">
+                            roadmap
+                          </span>
+                        )}
                       </div>
                       <h3 className="text-lg font-semibold">{node.title}</h3>
                       <p className="mt-1 text-sm text-accent">{node.subtitle}</p>

@@ -20,24 +20,33 @@ export default function StarField() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationId: number;
-    const STAR_COUNT = 120;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+
+    let animationId: number | null = null;
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const STAR_COUNT = 80;
     const SPEED = 0.15;
     const stars: Star[] = [];
 
     function resize() {
-      if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (!canvas || !ctx) return;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     function createStar(): Star {
       return {
-        x: Math.random() * (canvas?.width ?? 1920),
-        y: Math.random() * (canvas?.height ?? 1080),
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
         z: Math.random() * 3 + 0.5,
-        size: Math.random() * 1.5 + 0.3,
-        opacity: Math.random() * 0.5 + 0.1,
+        size: Math.random() * 2.0 + 0.5,
+        opacity: Math.random() * 0.4 + 0.5,
       };
     }
 
@@ -49,39 +58,45 @@ export default function StarField() {
       }
     }
 
+    function paintStatic() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (const star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(180, 200, 255, ${star.opacity})`;
+        ctx.fill();
+      }
+    }
+
     function draw() {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!ctx) return;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       for (const star of stars) {
-        // Slow drift — parallax based on z depth
         star.y -= SPEED * star.z;
         star.x += SPEED * 0.3 * star.z;
 
-        // Gentle twinkle
-        star.opacity += (Math.random() - 0.5) * 0.01;
-        star.opacity = Math.max(0.05, Math.min(0.6, star.opacity));
+        star.opacity += (Math.random() - 0.5) * 0.015;
+        star.opacity = Math.max(0.4, Math.min(0.95, star.opacity));
 
-        // Wrap around
         if (star.y < -5) {
-          star.y = canvas.height + 5;
-          star.x = Math.random() * canvas.width;
+          star.y = window.innerHeight + 5;
+          star.x = Math.random() * window.innerWidth;
         }
-        if (star.x > canvas.width + 5) {
+        if (star.x > window.innerWidth + 5) {
           star.x = -5;
         }
 
-        // Draw
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(180, 200, 255, ${star.opacity})`;
         ctx.fill();
       }
 
-      // Occasional subtle shooting star (very rare)
       if (Math.random() < 0.001) {
-        const sx = Math.random() * canvas.width;
-        const sy = Math.random() * canvas.height * 0.5;
+        const sx = Math.random() * window.innerWidth;
+        const sy = Math.random() * window.innerHeight * 0.5;
         const len = Math.random() * 80 + 40;
         const gradient = ctx.createLinearGradient(sx, sy, sx + len, sy + len * 0.3);
         gradient.addColorStop(0, "rgba(180, 200, 255, 0.6)");
@@ -97,14 +112,45 @@ export default function StarField() {
       animationId = requestAnimationFrame(draw);
     }
 
+    function start() {
+      if (animationId !== null) return;
+      if (reducedMotion.matches || document.hidden) {
+        paintStatic();
+        return;
+      }
+      animationId = requestAnimationFrame(draw);
+    }
+
+    function stop() {
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    }
+
+    function handleVisibility() {
+      if (document.hidden) stop();
+      else start();
+    }
+
+    function handleMotionChange() {
+      stop();
+      if (reducedMotion.matches) paintStatic();
+      else start();
+    }
+
     init();
-    draw();
+    start();
 
     window.addEventListener("resize", init);
+    document.addEventListener("visibilitychange", handleVisibility);
+    reducedMotion.addEventListener("change", handleMotionChange);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      stop();
       window.removeEventListener("resize", init);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      reducedMotion.removeEventListener("change", handleMotionChange);
     };
   }, []);
 

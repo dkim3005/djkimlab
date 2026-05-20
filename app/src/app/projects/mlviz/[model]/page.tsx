@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LinearRegressionDemo from "../components/LinearRegressionDemo";
@@ -7,6 +8,30 @@ export function generateStaticParams() {
   return MLVIZ_TIMELINE.map((node) => ({
     model: node.modelSlug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ model: string }>;
+}): Promise<Metadata> {
+  const { model } = await params;
+  const node = getMlvizNode(model);
+  if (!node) return {};
+  const title = `${node.title} (${node.year})`;
+  const description = `${node.subtitle}. ${node.description}`;
+  const canonical = `/projects/mlviz/${node.modelSlug}`;
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: `${title} · ML Visualizer`,
+      description,
+      url: canonical,
+    },
+  };
 }
 
 export default async function MlVizModelPage({
@@ -75,26 +100,36 @@ export default async function MlVizModelPage({
             <LinearRegressionDemo />
           ) : (
             <div className="rounded-3xl border border-card-border bg-card-bg/70 p-8">
-              <h2 className="text-2xl font-semibold">Interactive demo in queue</h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-                This node is on the timeline so the historical chain already
-                exists, but the animated demo is not built yet. The first pass
-                focuses on linear regression so the visual pattern, control
-                panel, and wiki linkage are settled before the more complex
-                models land.
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-card-border bg-background/60 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-muted">
+                Roadmap node · demo on the way
+              </div>
+              <h2 className="text-2xl font-semibold">
+                Read the wiki entry for {node.title}
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
+                The interactive demo for this model is on the build list — the
+                live linear regression demo is the template the rest will
+                follow. The wiki entry already has the full concept, history,
+                and where this fits in the chain.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href={node.wikiHref}
-                  className="rounded-md border border-accent/30 bg-accent/10 px-4 py-2 text-sm text-accent transition-colors hover:bg-accent/15"
+                  className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
                 >
-                  Read the wiki first
+                  Read the wiki →
                 </Link>
                 <Link
                   href="/projects/mlviz/linear-regression"
                   className="rounded-md border border-card-border px-4 py-2 text-sm text-muted transition-colors hover:text-foreground"
                 >
-                  Inspect the live demo pattern
+                  See the live demo pattern
+                </Link>
+                <Link
+                  href="/projects/mlviz"
+                  className="rounded-md border border-card-border px-4 py-2 text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  Back to timeline
                 </Link>
               </div>
             </div>

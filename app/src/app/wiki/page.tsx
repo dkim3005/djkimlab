@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getWikiEntries, WikiEntry } from "@/lib/wiki";
+
+export const metadata: Metadata = {
+  title: "Wiki",
+  description:
+    "Technical knowledge base — AI/ML fundamentals, math, frontend topics, and architecture decision records.",
+  alternates: { canonical: "/wiki" },
+  openGraph: {
+    title: "Wiki · djkimlab",
+    description:
+      "Technical knowledge base — AI/ML fundamentals, math, frontend topics, and architecture decision records.",
+    url: "/wiki",
+  },
+};
 
 function groupByCategory(entries: WikiEntry[]) {
   const groups: Record<string, WikiEntry[]> = {};
@@ -34,9 +48,14 @@ export default function WikiIndex() {
             <Link href="/wiki" className="text-sm text-foreground font-medium">
               Wiki
             </Link>
-            <Link href="/research" className="text-sm text-muted hover:text-foreground transition-colors">
-              Research
-            </Link>
+            <a
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-3 py-1.5 rounded-md border border-card-border text-muted hover:text-foreground hover:border-accent/50 transition-all"
+            >
+              Resume ↗
+            </a>
           </div>
         </div>
       </nav>
