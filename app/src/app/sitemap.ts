@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${SITE_URL}/wiki`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE_URL}/projects/mlviz`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/colophon`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/now`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
   ];
 
   const mlvizRoutes: MetadataRoute.Sitemap = MLVIZ_TIMELINE.map((node) => ({
