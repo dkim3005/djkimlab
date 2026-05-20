@@ -296,17 +296,15 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
                 Dongjin Kim
               </h1>
-              <p className="text-xl leading-relaxed mb-6">
+              <p className="text-xl leading-relaxed mb-6 text-muted">
+                AI & ML Engineer.{" "}
                 <span className="text-foreground">
-                  I replaced a 2.5-hour daily briefing process at the Korean
-                  Consulate with a 20-minute one
+                  Eight small AI systems running on a single laptop in my
+                  apartment, fronted by a Cloudflare Tunnel
                 </span>
-                <span className="text-muted">
-                  {" "}— and 8 other live AI systems run on this laptop:
-                  investment ops, medical imaging, agents, RL, NLP.
-                </span>
+                {" "}— investment ops, medical imaging, agents, RL, NLP.
                 <br />
-                <span className="text-muted text-base">
+                <span className="text-base">
                   M.S. Computer Science (AI), Georgia Tech ·
                   CKA-certified DevOps background · Toronto, ON.
                 </span>
