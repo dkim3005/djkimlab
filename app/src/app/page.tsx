@@ -287,22 +287,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Top strip — live news agent (no public URL but worth foregrounding) */}
-      <section className="pt-16 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-xs font-mono text-emerald-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>
-              <span className="text-foreground">News agent running</span> at the
-              Korean Consulate · ~15 sources · LLM topic classification +
-              summaries · up to 5×/day
-            </span>
-          </div>
-        </div>
-      </section>
-
       {/* Hero */}
-      <section className="pt-10 pb-20 px-6">
+      <section className="pt-32 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-start">
             <div className="max-w-2xl">

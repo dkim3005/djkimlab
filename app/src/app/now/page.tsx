@@ -61,18 +61,9 @@ export default function NowPage() {
 
           <section className="mb-12">
             <h2 className="text-xs font-mono uppercase tracking-widest text-accent mb-4">
-              Currently shipping
+              Currently working on
             </h2>
             <ul className="space-y-3 text-sm leading-7 text-muted">
-              <li className="flex gap-2">
-                <span className="text-accent shrink-0 mt-1">›</span>
-                <span>
-                  <span className="text-foreground">Government briefing pipeline</span>{" "}
-                  at the Korean Consulate — ~15 live sources, NLP topic
-                  classification, LLM summaries, Telegram delivery. Up to 5
-                  daily runs with retry + monitoring.
-                </span>
-              </li>
               <li className="flex gap-2">
                 <span className="text-accent shrink-0 mt-1">›</span>
                 <span>
