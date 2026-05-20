@@ -156,30 +156,21 @@ export default async function ProjectPage({
 
           {p.architecture.length > 0 && (
             <Section label="Architecture">
-              <div className="overflow-hidden rounded-xl border border-card-border">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="bg-card-bg text-left">
-                      <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-muted">
-                        Component
-                      </th>
-                      <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-muted">
-                        Role
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-muted">
-                    {p.architecture.map((a) => (
-                      <tr key={a.component} className="border-t border-card-border align-top">
-                        <td className="px-4 py-3 font-mono text-foreground whitespace-nowrap">
-                          {a.component}
-                        </td>
-                        <td className="px-4 py-3 leading-6">{a.role}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <dl className="overflow-hidden rounded-xl border border-card-border divide-y divide-card-border">
+                {p.architecture.map((a) => (
+                  <div
+                    key={a.component}
+                    className="grid grid-cols-1 gap-1 px-4 py-3 sm:grid-cols-[minmax(0,180px)_minmax(0,1fr)] sm:gap-4"
+                  >
+                    <dt className="font-mono text-sm text-foreground break-words">
+                      {a.component}
+                    </dt>
+                    <dd className="text-sm leading-6 text-muted break-words">
+                      {a.role}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </Section>
           )}
 

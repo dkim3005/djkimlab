@@ -60,8 +60,9 @@ export default function Colophon() {
           <p className="text-lg text-muted leading-relaxed mb-12">
             Everything on <code className="font-mono text-foreground">djkimlab.com</code> and the
             8 subdomain apps runs on <span className="text-foreground">one laptop in my
-            apartment</span>. No Vercel, no AWS, no Render. This page documents the
-            stack so the homelab work isn&apos;t invisible.
+            apartment</span>, fronted by a Cloudflare Tunnel. No Vercel, no
+            AWS, no Render. This page documents the stack so the homelab
+            work isn&apos;t invisible.
           </p>
 
           <section className="mb-14">

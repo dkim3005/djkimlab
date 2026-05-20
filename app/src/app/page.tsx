@@ -287,8 +287,22 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* Top strip — live news agent (no public URL but worth foregrounding) */}
+      <section className="pt-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-xs font-mono text-emerald-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>
+              <span className="text-foreground">News agent running</span> at the
+              Korean Consulate · ~15 sources · LLM topic classification +
+              summaries · up to 5×/day
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-10 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-start">
             <div className="max-w-2xl">
@@ -298,12 +312,12 @@ export default function Home() {
               </h1>
               <p className="text-xl leading-relaxed mb-6">
                 <span className="text-foreground">
-                  I replaced a 2.5-hour daily diplomatic briefing process at
-                  the Korean Consulate with a 20-minute one
+                  I replaced a 2.5-hour daily briefing process at the Korean
+                  Consulate with a 20-minute one
                 </span>
                 <span className="text-muted">
-                  {" "}— and 7 other live production AI systems span investment
-                  ops, medical imaging, agents, and reinforcement learning.
+                  {" "}— and 8 other live AI systems run on this laptop:
+                  investment ops, medical imaging, agents, RL, NLP.
                 </span>
                 <br />
                 <span className="text-muted text-base">
@@ -668,7 +682,7 @@ export default function Home() {
                   <li className="flex gap-2">
                     <span className="text-accent shrink-0 mt-0.5">›</span>
                     <span>
-                      Consulting on shipping production AI systems on a small team budget.
+                      Consulting on shipping working AI systems on a small-team budget.
                     </span>
                   </li>
                   <li className="flex gap-2">

@@ -3,12 +3,12 @@ title: "Responsive Lamp — design notes"
 category: projects
 tags: [vision, gaze, yolo, mediapipe, three-js]
 created: 2026-05-20
-status: skeleton
+updated: 2026-05-20
 ---
 
 Technical companion to [/projects/lamp](/projects/lamp). For someone
 in HCI / spatial computing thinking about how to close the loop from
-perception to action to memory.
+perception → action → memory.
 
 ## I Use This When...
 
@@ -18,36 +18,71 @@ reason over that memory.
 
 ## Why MediaPipe iris landmarks for gaze
 
-> TODO: MediaPipe runs in-browser, gives sub-pixel iris landmarks, and
-> doesn't require shipping a tracker model. Compare vs OpenFace.
+MediaPipe is good enough for desktop gaze tracking and has three
+properties the rest of the stack benefits from:
+
+- It runs locally, no model deploy step.
+- It exposes sub-pixel iris landmarks per frame, which is enough
+  precision to point a virtual lamp without filtering noise into
+  jitter.
+- It's predictable enough latency-wise to push gaze events at 30 Hz
+  over WebSocket without dropping frames.
+
+A heavier alternative (e.g. OpenFace) would buy slightly better head-
+pose handling and lose all three of those.
 
 ## Why YOLOv8 for object detection
 
-> TODO: 80 COCO classes is overkill for a desk scene, but pretrained
-> weights are good enough that there was no need to fine-tune for a
-> demo. What I'd swap for production.
+Pretrained COCO weights are good enough for a desk scene without any
+fine-tuning — the demo doesn't need to recognize anything exotic.
+YOLOv8 also has a small variant (`n` / `s`) that runs at reasonable
+FPS on CPU, which matters for a homelab deploy.
+
+If this were a real product, I'd swap to a smaller distilled model
+tuned to the actual desk-object distribution. 80 generic classes is
+expensive overkill.
 
 ## Why a typed memory store, not raw frame logs
 
-> TODO: the LLM should reason over typed events (object, time, last
-> position), not over thousands of frames. Schema details.
+The LLM should reason over typed events:
 
-## Why GPT-4o-mini and not a larger model
+```
+{object: "mug", first_seen: 17:42:01, last_seen: 17:43:18, position: {...}}
+```
 
-> TODO: memory queries are bounded and short. Latency wins over
-> reasoning depth here.
+not over thousands of unstructured frames. The store collapses the
+detection stream into per-object summaries — last-seen time and
+position, optional history — so a query like "where did I last see
+my keys?" becomes a single lookup, and the LLM's job is to phrase
+the answer, not to mine raw data.
 
-## Why WebSocket for everything
+## Why GPT-4o-mini, not a larger model
 
-> TODO: gaze at 30+ Hz over HTTP polling would either stutter or
-> hammer the server. WebSocket is the right shape for the pub/sub
-> pattern this app needs.
+Memory queries are bounded and short ("where is X?", "what was on
+the desk an hour ago?"). Latency beats reasoning depth. A larger
+model would buy nothing for these queries and would cost noticeable
+delay between the question and the answer.
+
+## Why WebSocket end-to-end
+
+Two streams need pub/sub semantics:
+
+- Gaze at 30+ Hz → the Three.js lamp re-aims continuously.
+- Detection events → the memory store updates and the UI flags new
+  objects.
+
+Polling either over HTTP would either stutter (low rate) or hammer
+the server (high rate). WebSocket is the right shape.
 
 ## What I'd rebuild
 
-> TODO: persist memory beyond process lifetime so "yesterday" queries
-> work. Swap YOLO for a smaller / faster variant tuned to the desk
-> scene, not COCO.
+- Persist the memory store beyond process lifetime so "yesterday"
+  queries actually work.
+- Switch detection to a smaller distilled model tuned to the desk
+  scene; the demo doesn't need COCO breadth.
+- Add a "gaze fixation" filter so the lamp only commits to a target
+  after the user has looked at it for >200 ms — kills jitter from
+  scanning saccades.
 
 ## Related
 
