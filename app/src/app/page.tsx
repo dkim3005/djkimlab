@@ -103,16 +103,28 @@ const PROJECTS = [
   },
 ];
 
+// Five-color semantic system instead of one-color-per-category:
+//   blue   — production business systems (ops, finance)
+//   cyan   — perception (medical, vision)
+//   violet — learning / agents / reasoning
+//   emerald — language and retrieval (NLP, LLM, RAG)
+//   slate  — coursework
+const BLUE = { chip: "text-blue-300 bg-blue-500/10 border-blue-500/25", bar: "bg-blue-500" };
+const CYAN = { chip: "text-cyan-300 bg-cyan-500/10 border-cyan-500/25", bar: "bg-cyan-500" };
+const VIOLET = { chip: "text-violet-300 bg-violet-500/10 border-violet-500/25", bar: "bg-violet-500" };
+const EMERALD = { chip: "text-emerald-300 bg-emerald-500/10 border-emerald-500/25", bar: "bg-emerald-500" };
+const SLATE = { chip: "text-slate-300 bg-slate-500/10 border-slate-500/25", bar: "bg-slate-600" };
+
 const CATEGORY: Record<string, { chip: string; bar: string }> = {
-  "Investment Ops": { chip: "text-emerald-300 bg-emerald-500/10 border-emerald-500/25", bar: "bg-emerald-500" },
-  "Medical AI": { chip: "text-cyan-300 bg-cyan-500/10 border-cyan-500/25", bar: "bg-cyan-500" },
-  "Reinforcement Learning": { chip: "text-violet-300 bg-violet-500/10 border-violet-500/25", bar: "bg-violet-500" },
-  "Agentic AI": { chip: "text-amber-300 bg-amber-500/10 border-amber-500/25", bar: "bg-amber-500" },
-  "NLP & Speech": { chip: "text-rose-300 bg-rose-500/10 border-rose-500/25", bar: "bg-rose-500" },
-  "Vision & HCI": { chip: "text-blue-300 bg-blue-500/10 border-blue-500/25", bar: "bg-blue-500" },
-  "Quant Finance": { chip: "text-teal-300 bg-teal-500/10 border-teal-500/25", bar: "bg-teal-500" },
-  "LLM & RAG": { chip: "text-orange-300 bg-orange-500/10 border-orange-500/25", bar: "bg-orange-500" },
-  "Coursework": { chip: "text-slate-300 bg-slate-500/10 border-slate-500/25", bar: "bg-slate-600" },
+  "Investment Ops": BLUE,
+  "Quant Finance": BLUE,
+  "Medical AI": CYAN,
+  "Vision & HCI": CYAN,
+  "Reinforcement Learning": VIOLET,
+  "Agentic AI": VIOLET,
+  "NLP & Speech": EMERALD,
+  "LLM & RAG": EMERALD,
+  "Coursework": SLATE,
 };
 
 const EXPERIENCE = [
@@ -204,12 +216,13 @@ const NAV_LINKS = [
   { label: "Wiki", href: "/wiki" },
 ];
 
+// Same 5-color semantic system used by the project categories.
 const SKILL_COLORS: Record<string, string> = {
-  Languages: "text-violet-400",
-  "ML & Perception": "text-blue-400",
-  "Systems & Backend": "text-emerald-400",
-  "AI & APIs": "text-amber-400",
-  "Cloud & Infra": "text-rose-400",
+  Languages: "text-slate-300",
+  "ML & Perception": "text-cyan-300",
+  "Systems & Backend": "text-blue-300",
+  "AI & APIs": "text-emerald-300",
+  "Cloud & Infra": "text-violet-300",
 };
 
 export default function Home() {
@@ -253,9 +266,11 @@ export default function Home() {
                 Dongjin Kim
               </h1>
               <p className="text-xl text-muted leading-relaxed mb-6">
-                AI & ML Engineer building systems that work at production scale.
+                AI & ML Engineer — 8 live production systems spanning
+                investment ops, medical AI, agents, and reinforcement learning.
                 <br />
-                M.S. Computer Science (AI), Georgia Tech.
+                Currently building government AI tooling at the Korean
+                Consulate in Toronto. M.S. Computer Science (AI), Georgia Tech.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {[
@@ -385,18 +400,13 @@ export default function Home() {
             {PROJECTS.map((project) => {
               const cat = CATEGORY[project.category] ?? CATEGORY["Coursework"];
               const isLive = project.href !== "#";
-              return (
-                <a
-                  key={project.title}
-                  href={isLive ? project.href : undefined}
-                  target={isLive ? "_blank" : undefined}
-                  rel={isLive ? "noopener noreferrer" : undefined}
-                  className={`group relative flex flex-col rounded-xl border border-card-border bg-card-bg overflow-hidden transition-all duration-200 ${
-                    isLive
-                      ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
-                      : "cursor-default"
-                  }`}
-                >
+              const cardClass = `group relative flex flex-col rounded-xl border border-card-border bg-card-bg overflow-hidden transition-all duration-200 ${
+                isLive
+                  ? "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30"
+                  : "opacity-80"
+              }`;
+              const cardContent = (
+                <>
                   <div className={`h-1 w-full ${cat.bar}`} />
                   <div className="flex flex-col flex-1 p-6">
                     <div className="flex items-center justify-between mb-3">
@@ -450,7 +460,22 @@ export default function Home() {
                       </div>
                     )}
                   </div>
+                </>
+              );
+              return isLive ? (
+                <a
+                  key={project.title}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                >
+                  {cardContent}
                 </a>
+              ) : (
+                <article key={project.title} className={cardClass}>
+                  {cardContent}
+                </article>
               );
             })}
           </div>
