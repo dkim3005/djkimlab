@@ -1,5 +1,7 @@
 import { getWikiEntries } from "@/lib/wiki";
 
+export const dynamic = "force-static";
+
 const SITE_URL = "https://djkimlab.com";
 const FEED_URL = `${SITE_URL}/wiki/feed.xml`;
 

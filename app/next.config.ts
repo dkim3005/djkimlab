@@ -8,11 +8,15 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
 ];
 
-const nextConfig: NextConfig = {
+const staticExport = process.env.STATIC_EXPORT === "1";
+
+const nextConfig: NextConfig = staticExport
+  ? { output: "export", trailingSlash: false, images: { unoptimized: true } }
+  : {
   allowedDevOrigins: ["djkimlab.com", "*.djkimlab.com", "www.djkimlab.com"],
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
-};
+  };
 
 export default nextConfig;

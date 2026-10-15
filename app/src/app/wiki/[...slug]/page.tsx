@@ -15,7 +15,7 @@ import {
 } from "@/lib/wiki";
 import WikiSearch from "@/app/components/WikiSearch";
 import WikiTocSidebar from "@/app/components/WikiTocSidebar";
-import "highlight.js/styles/github-dark.css";
+import "highlight.js/styles/github.css";
 
 function summarize(markdown: string, max = 160): string {
   const stripped = markdown

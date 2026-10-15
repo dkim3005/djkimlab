@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import StarField from "./components/StarField";
 import "./globals.css";
 
 const SITE_URL = "https://djkimlab.com";
-const TITLE = "Dongjin Kim — AI & Infrastructure Engineer";
+const TITLE = "Dongjin Kim — Healthcare AI & Digital Health Engineer";
 const DESCRIPTION =
-  "Portfolio and technical wiki by Dongjin Kim. AI & ML Engineer — MLOps, LLM pipelines, and full-stack ML applications. M.S. CS (AI), Georgia Tech.";
+  "Dongjin Kim builds grounded, evaluated AI tools for frontline operations and healthcare — production systems, medical imaging AI, and LLM workflows. M.S. CS (AI), Georgia Tech. Toronto.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -20,6 +19,9 @@ export const metadata: Metadata = {
   keywords: [
     "Dongjin Kim",
     "djkimlab",
+    "healthcare AI",
+    "digital health",
+    "clinical informatics",
     "AI engineer",
     "ML engineer",
     "MLOps",
@@ -55,7 +57,7 @@ const PERSON_JSON_LD = {
   name: "Dongjin Kim",
   url: SITE_URL,
   email: "djkim3005@gmail.com",
-  jobTitle: "AI & ML Engineer",
+  jobTitle: "Healthcare AI & Digital Health Engineer",
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "Georgia Institute of Technology" },
     { "@type": "CollegeOrUniversity", name: "Korea National Open University" },
@@ -87,7 +89,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
         />
-        <StarField />
         <div className="relative z-10 flex min-h-full flex-col">{children}</div>
       </body>
     </html>

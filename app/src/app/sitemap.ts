@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import type { MetadataRoute } from "next";
 import { getAllWikiSlugs } from "@/lib/wiki";
 import { MLVIZ_TIMELINE } from "@/lib/mlviz";

@@ -94,13 +94,13 @@ export default async function ProjectPage({
               {p.category}
             </span>
             {isLive && (
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-400">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-700">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 live
               </span>
             )}
             {!isLive && (
-              <span className="text-xs font-mono uppercase tracking-wider text-violet-400">
+              <span className="text-xs font-mono uppercase tracking-wider text-violet-700">
                 coursework
               </span>
             )}
@@ -109,7 +109,7 @@ export default async function ProjectPage({
           <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
             {p.title}
           </h1>
-          <p className="mt-3 text-lg leading-relaxed text-slate-300">
+          <p className="mt-3 text-lg leading-relaxed text-slate-700">
             {p.tagline}
           </p>
           {p.metric && (
