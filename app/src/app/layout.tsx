@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SiteHeader, SiteFooter } from "./components/SiteChrome";
 
 const SITE_URL = "https://djkimlab.com";
 const TITLE = "Dongjin Kim — Healthcare AI & Digital Health Engineer";
@@ -89,7 +90,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
         />
-        <div className="relative z-10 flex min-h-full flex-col">{children}</div>
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

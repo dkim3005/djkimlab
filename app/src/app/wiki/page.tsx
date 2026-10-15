@@ -35,35 +35,9 @@ export default function WikiIndex() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <nav className="fixed top-0 w-full z-50 border-b border-card-border bg-background/80 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
-            djkimlab<span className="text-accent">.com</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <WikiSearch index={searchIndex} />
-            <Link href="/#projects" className="text-sm text-muted hover:text-foreground transition-colors">
-              Projects
-            </Link>
-            <Link href="/#experience" className="text-sm text-muted hover:text-foreground transition-colors">
-              Experience
-            </Link>
-            <Link href="/wiki" className="text-sm text-foreground font-medium">
-              Wiki
-            </Link>
-            <a
-              href="/resume.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm px-3 py-1.5 rounded-md border border-card-border text-muted hover:text-foreground hover:border-accent/50 transition-all"
-            >
-              Resume ↗
-            </a>
-          </div>
-        </div>
-      </nav>
+      <div className="mx-auto flex max-w-5xl justify-end px-5 pt-4"><WikiSearch index={searchIndex} /></div>
 
-      <main className="pt-24 pb-20 px-6">
+      <main className="pt-10 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap items-baseline justify-between gap-3 mb-2">
             <h1 className="text-3xl font-bold">Wiki</h1>

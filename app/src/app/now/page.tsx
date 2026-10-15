@@ -20,26 +20,8 @@ export default function NowPage() {
 
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 w-full z-50 border-b border-card-border bg-background/80 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
-            djkimlab<span className="text-accent">.com</span>
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/#projects" className="text-sm text-muted hover:text-foreground transition-colors">
-              Projects
-            </Link>
-            <Link href="/wiki" className="text-sm text-muted hover:text-foreground transition-colors">
-              Wiki
-            </Link>
-            <Link href="/#contact" className="text-sm text-muted hover:text-foreground transition-colors">
-              Contact
-            </Link>
-          </div>
-        </div>
-      </nav>
 
-      <main className="pt-24 pb-20 px-6">
+      <main className="pt-10 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
           <p className="font-mono text-xs uppercase tracking-widest text-accent mb-3">
             $ date · last commit: {updated}

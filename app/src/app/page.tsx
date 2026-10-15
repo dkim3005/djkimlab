@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { getSiteLastUpdated } from "@/lib/site-meta";
 
 const EMAIL = "djkim3005@gmail.com";
 const LINKEDIN = "https://linkedin.com/in/dongjink";
@@ -150,14 +149,6 @@ const EDUCATION = [
 
 const CERTS = ["Certified Kubernetes Administrator (CKA), 2023", "TensorFlow Developer Certificate, 2021", "Azure Fundamentals, 2021"];
 
-const NAV = [
-  { label: "Work", href: "#work" },
-  { label: "Approach", href: "#approach" },
-  { label: "Experience", href: "#experience" },
-  { label: "Wiki", href: "/wiki" },
-  { label: "Contact", href: "#contact" },
-];
-
 function SectionTitle({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="mb-8">
@@ -168,26 +159,8 @@ function SectionTitle({ eyebrow, title }: { eyebrow: string; title: string }) {
 }
 
 export default function Home() {
-  const lastUpdated = getSiteLastUpdated();
   return (
     <>
-      <nav className="sticky top-0 z-50 border-b border-card-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3">
-          <Link href="/" className="font-semibold tracking-tight">
-            Dongjin Kim
-          </Link>
-          <div className="flex items-center gap-4 text-sm text-muted sm:gap-6">
-            {NAV.map((n) => (
-              <a key={n.label} href={n.href} className="hidden hover:text-foreground sm:inline">
-                {n.label}
-              </a>
-            ))}
-            <a href={`mailto:${EMAIL}`} className="rounded-md bg-accent px-3 py-1.5 font-medium text-white hover:bg-accent-hover">
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
 
       <main className="mx-auto max-w-5xl px-5">
         {/* Hero */}
@@ -369,16 +342,6 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-card-border">
-        <div className="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 px-5 py-6 text-xs text-muted">
-          <span>© {new Date().getFullYear()} Dongjin Kim · Toronto</span>
-          <span>
-            <Link href="/wiki" className="hover:text-foreground">Wiki</Link> ·{" "}
-            <Link href="/colophon" className="hover:text-foreground">Colophon</Link>
-            {lastUpdated ? ` · Updated ${lastUpdated}` : ""}
-          </span>
-        </div>
-      </footer>
     </>
   );
 }
