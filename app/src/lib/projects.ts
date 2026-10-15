@@ -22,6 +22,8 @@ export interface ProjectDetail {
   tagline: string;
   metric?: string;
   href?: string;
+  repo?: string;
+  demo?: string;
   problem: string;
   audience: string;
   architecture: { component: string; role: string }[];
@@ -41,7 +43,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     tagline:
       "Live back-office platform — five operations modules over one continuously evolving market simulation.",
     metric: "5 ops modules · 1 live market sim · FRED-anchored",
-    href: "https://ops.djkimlab.com",
+    repo: "https://github.com/dkim3005/investment-operations-suite",
     problem:
       "Investment back-office tooling is usually demoed against a one-off CSV. That hides the actual problem: the same trades flow through reconciliation, NAV, data-quality monitoring, document extraction, and the ledger — and they have to agree. The suite is a single market simulator with five operations modules wired on top, so every module sees the same evolving book and the same breaks.",
     audience:
@@ -109,7 +111,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     tagline:
       "Chest X-ray triage, explainability and semantic search — one shared model across three workflows.",
     metric: "14 conditions · 112k X-rays · 3 workflows on 1 model",
-    href: "https://radiology.djkimlab.com",
+    repo: "https://github.com/dkim3005/radiology-ai",
+    demo: "/projects/radiology/demo",
     problem:
       "Three different things a radiology team wants from an X-ray model — triage, region explanation, and similar-case retrieval — are usually built as three different systems. They don't have to be. This platform runs one DenseNet for triage and explainability, plus CLIP for retrieval, on the NIH ChestX-ray14 corpus (112,120 frontal images, 14 disease labels).",
     audience:
@@ -133,7 +136,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       },
       {
         component: "FastAPI + Next.js",
-        role: "Backend on port 10001, frontend on 10000; tunnel routes radiology.djkimlab.com to the frontend.",
+        role: "FastAPI backend + Next.js frontend; a precomputed static demo runs on this site.",
       },
     ],
     flow: [
@@ -169,7 +172,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     category: "Reinforcement Learning",
     tagline: "A DQN agent and a Connect-4 game-AI arena in one workbench.",
     metric: "3 search algorithms · play live in browser",
-    href: "https://rl.djkimlab.com",
+    repo: "https://github.com/dkim3005/reinforcement-learning-lab",
     problem:
       "Two strands of RL teaching usually live in different repos: value-based control on Gym environments, and search-based game AI. This single workbench puts them side by side — a DQN trainer that streams reward and loss live, and a Connect-4 arena where you can play alpha-beta minimax, MCTS, and an AlphaZero-style self-play network from the same UI.",
     audience:
@@ -226,7 +229,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     category: "Agentic AI",
     tagline: "A tool-using agent that plans, acts, observes and self-corrects.",
     metric: "AST-sandboxed Python · self-corrects · streamed trace",
-    href: "https://agent.djkimlab.com",
+    repo: "https://github.com/dkim3005/autonomous-ai-agent",
     problem:
       "Most demo agents either crash on the first tool error or hide their reasoning. This one runs an explicit plan → act → observe loop, streams every reasoning step and tool call to the browser, reads tool errors as new context, and tries again — with a real-world hardening story around the Python sandbox.",
     audience:
@@ -284,7 +287,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     category: "NLP & Speech",
     tagline: "Speech → transcription, sentiment, keywords — a full NLP pipeline.",
     metric: "Speech → 4 structured outputs in one pass",
-    href: "https://audio.djkimlab.com",
+    repo: "https://github.com/dkim3005/audio-intelligence",
     problem:
       "Upload an audio clip and you usually get just a transcript. Adding sentiment, keywords, and speaking-rate to the same upload is mechanically easy but rarely shipped together. This is the one-pass version.",
     audience:
@@ -341,7 +344,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     category: "Vision & HCI",
     tagline: "A gaze-tracked virtual desk lamp with object detection and memory.",
     metric: "6-DOF lamp · real-time gaze + object memory",
-    href: "https://lamp.djkimlab.com",
+    repo: "https://github.com/dkim3005/responsive_lamp",
     problem:
       "Most CV demos show you bounding boxes and stop. This one closes the loop — gaze tells the lamp where you're looking, object detection tells it what's there, and a small store remembers what was on the desk so the lamp (and an LLM behind it) can answer questions about it later.",
     audience:
@@ -406,7 +409,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     category: "Quant Finance",
     tagline: "Regime-aware swing trading with multifactor ranking and paper execution.",
     metric: "Multifactor + HMM regime · 15-min paper-trade cycle",
-    href: "https://quant.djkimlab.com",
+    
     problem:
       "Quant tutorials usually stop at a backtest. This one runs the full loop: watchlist ingestion, multifactor ranking, regime detection, sentiment overlay, paper execution with sizing and stops, and a scheduled cycle that runs on the clock.",
     audience:
@@ -481,7 +484,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     category: "LLM & RAG",
     tagline: "A grounded RAG chatbot for the Korean Consulate in Toronto.",
     metric: "216 official posts · BM25 + embeddings hybrid",
-    href: "https://chatbot.djkimlab.com",
+    repo: "https://github.com/dkim3005/chatbot_consulate",
     problem:
       "Consulate visitors and Korean nationals in Toronto repeatedly ask the same procedural questions (passport, visa, notarization, military service, family registration). The official bulletin has the answers but is hard to search. This chatbot grounds answers strictly in 216 official posts using hybrid retrieval and refuses to invent anything outside that corpus.",
     audience:

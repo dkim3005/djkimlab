@@ -57,7 +57,8 @@ export default async function ProjectPage({
   const { slug } = await params;
   const p = getProjectDetail(slug);
   if (!p) notFound();
-  const isLive = !!p.href;
+  const isLive = !!p.demo;
+  const isCoursework = !p.repo && !p.demo;
 
   return (
     <div className="min-h-screen">
@@ -96,10 +97,10 @@ export default async function ProjectPage({
             {isLive && (
               <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-700">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                live
+                interactive demo
               </span>
             )}
-            {!isLive && (
+            {isCoursework && (
               <span className="text-xs font-mono uppercase tracking-wider text-violet-700">
                 coursework
               </span>
@@ -118,16 +119,24 @@ export default async function ProjectPage({
             </p>
           )}
 
-          {(isLive || p.resources?.length) && (
+          {(isLive || p.repo || p.resources?.length) && (
             <div className="mt-6 flex flex-wrap gap-3">
               {isLive && (
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={p.demo!}
                   className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
                 >
-                  Open live demo ↗
+                  Try the demo →
+                </Link>
+              )}
+              {p.repo && (
+                <a
+                  href={p.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-card-border px-4 py-2 text-sm font-medium hover:border-accent transition-all"
+                >
+                  View code on GitHub ↗
                 </a>
               )}
               {p.resources?.map((r) => (

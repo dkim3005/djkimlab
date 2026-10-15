@@ -1,0 +1,3044 @@
+{
+ "labels": [
+  "Atelectasis",
+  "Consolidation",
+  "Infiltration",
+  "Pneumothorax",
+  "Edema",
+  "Emphysema",
+  "Fibrosis",
+  "Effusion",
+  "Pneumonia",
+  "Pleural_Thickening",
+  "Cardiomegaly",
+  "Nodule",
+  "Mass",
+  "Hernia"
+ ],
+ "studies": [
+  {
+   "id": "S03",
+   "image": "S03.jpg",
+   "source": "00000211_010.png",
+   "truth": [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Effusion",
+    "Infiltration"
+   ],
+   "boxes": [
+    {
+     "label": "Atelectasis",
+     "x": 0.3448093220338984,
+     "y": 0.5225459114979892,
+     "w": 0.09957627118644043,
+     "h": 0.1641949152542373
+    }
+   ],
+   "scores": {
+    "Effusion": 0.8810836672782898,
+    "Cardiomegaly": 0.7527261972427368,
+    "Pleural_Thickening": 0.6066319942474365,
+    "Infiltration": 0.5905052423477173,
+    "Consolidation": 0.5248090028762817,
+    "Pneumonia": 0.5053961277008057,
+    "Fibrosis": 0.5046930313110352,
+    "Edema": 0.5040296316146851,
+    "Emphysema": 0.502845823764801,
+    "Atelectasis": 0.5027869939804077,
+    "Pneumothorax": 0.5021467208862305,
+    "Mass": 0.5011408925056458,
+    "Hernia": 0.5002716183662415,
+    "Nodule": 0.2808779776096344
+   },
+   "top": [
+    "Effusion",
+    "Cardiomegaly",
+    "Pleural_Thickening"
+   ],
+   "overlays": {
+    "Effusion": "S03_Effusion.jpg",
+    "Cardiomegaly": "S03_Cardiomegaly.jpg",
+    "Pleural_Thickening": "S03_Pleural_Thickening.jpg"
+   },
+   "priority": 0.8810836672782898,
+   "patient": {
+    "age": 58,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 10
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S03",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 58
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S03",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S03"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.881
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.753
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.607
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S12",
+   "image": "S12.jpg",
+   "source": "00000061_001.png",
+   "truth": [
+    "Mass"
+   ],
+   "boxes": [],
+   "scores": {
+    "Mass": 0.7399523258209229,
+    "Nodule": 0.6673074960708618,
+    "Effusion": 0.5897836089134216,
+    "Atelectasis": 0.5282668471336365,
+    "Pleural_Thickening": 0.5246905088424683,
+    "Infiltration": 0.5241391658782959,
+    "Fibrosis": 0.5229701399803162,
+    "Pneumothorax": 0.5109955072402954,
+    "Consolidation": 0.5085921287536621,
+    "Pneumonia": 0.5007615089416504,
+    "Edema": 0.2715299427509308,
+    "Emphysema": 0.25656047463417053,
+    "Hernia": 0.24890200793743134,
+    "Cardiomegaly": 0.0024567614309489727
+   },
+   "top": [
+    "Mass",
+    "Nodule",
+    "Effusion"
+   ],
+   "overlays": {
+    "Mass": "S12_Mass.jpg",
+    "Nodule": "S12_Nodule.jpg",
+    "Effusion": "S12_Effusion.jpg"
+   },
+   "priority": 0.7399523258209229,
+   "patient": {
+    "age": 77,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 1
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S12",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 77
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S12",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S12"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Mass"
+      },
+      "valueQuantity": {
+       "value": 0.74
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.667
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.59
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S08",
+   "image": "S08.jpg",
+   "source": "00000643_002.png",
+   "truth": [
+    "Atelectasis",
+    "Infiltration",
+    "Pneumothorax"
+   ],
+   "boxes": [
+    {
+     "label": "Atelectasis",
+     "x": 0.7989417989417988,
+     "y": 0.526984126984127,
+     "w": 0.09417989417989414,
+     "h": 0.07301587301587305
+    }
+   ],
+   "scores": {
+    "Nodule": 0.7051320672035217,
+    "Mass": 0.6977317333221436,
+    "Effusion": 0.6283506155014038,
+    "Atelectasis": 0.5528691411018372,
+    "Fibrosis": 0.5223344564437866,
+    "Infiltration": 0.5120588541030884,
+    "Pleural_Thickening": 0.5090863704681396,
+    "Pneumothorax": 0.5086915493011475,
+    "Consolidation": 0.5049926042556763,
+    "Pneumonia": 0.5035520195960999,
+    "Edema": 0.481620728969574,
+    "Hernia": 0.34657371044158936,
+    "Emphysema": 0.053822848945856094,
+    "Cardiomegaly": 0.004442226141691208
+   },
+   "top": [
+    "Nodule",
+    "Mass",
+    "Effusion"
+   ],
+   "overlays": {
+    "Nodule": "S08_Nodule.jpg",
+    "Mass": "S08_Mass.jpg",
+    "Effusion": "S08_Effusion.jpg"
+   },
+   "priority": 0.7051320672035217,
+   "patient": {
+    "age": 40,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 2
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S08",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 40
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S08",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S08"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.705
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Mass"
+      },
+      "valueQuantity": {
+       "value": 0.698
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.628
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S04",
+   "image": "S04.jpg",
+   "source": "00000344_003.png",
+   "truth": [
+    "Atelectasis",
+    "Effusion",
+    "Infiltration"
+   ],
+   "boxes": [
+    {
+     "label": "Effusion",
+     "x": 0.168333333333333,
+     "y": 0.22475926717122363,
+     "w": 0.09555555555555556,
+     "h": 0.21666666666666698
+    }
+   ],
+   "scores": {
+    "Cardiomegaly": 0.7036141157150269,
+    "Infiltration": 0.5930509567260742,
+    "Effusion": 0.5923632383346558,
+    "Atelectasis": 0.5644285678863525,
+    "Consolidation": 0.513224720954895,
+    "Pleural_Thickening": 0.5113667249679565,
+    "Hernia": 0.5057884454727173,
+    "Pneumonia": 0.5029884576797485,
+    "Pneumothorax": 0.5010055303573608,
+    "Edema": 0.5008809566497803,
+    "Emphysema": 0.5002098083496094,
+    "Mass": 0.4513486325740814,
+    "Nodule": 0.38105690479278564,
+    "Fibrosis": 0.17017507553100586
+   },
+   "top": [
+    "Cardiomegaly",
+    "Infiltration",
+    "Effusion"
+   ],
+   "overlays": {
+    "Cardiomegaly": "S04_Cardiomegaly.jpg",
+    "Infiltration": "S04_Infiltration.jpg",
+    "Effusion": "S04_Effusion.jpg"
+   },
+   "priority": 0.7036141157150269,
+   "patient": {
+    "age": 33,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 4
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S04",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 33
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S04",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S04"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.704
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.593
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.592
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S06",
+   "image": "S06.jpg",
+   "source": "00000457_004.png",
+   "truth": [
+    "Atelectasis",
+    "Cardiomegaly"
+   ],
+   "boxes": [
+    {
+     "label": "Atelectasis",
+     "x": 0.7841269841269843,
+     "y": 0.2751322751322754,
+     "w": 0.09100529100529102,
+     "h": 0.10264550264550293
+    }
+   ],
+   "scores": {
+    "Pleural_Thickening": 0.6991304159164429,
+    "Infiltration": 0.6852551698684692,
+    "Effusion": 0.6329410076141357,
+    "Mass": 0.5784105062484741,
+    "Atelectasis": 0.5692751407623291,
+    "Consolidation": 0.5409811735153198,
+    "Fibrosis": 0.5167005062103271,
+    "Nodule": 0.5084353685379028,
+    "Cardiomegaly": 0.5064616203308105,
+    "Hernia": 0.502661943435669,
+    "Pneumonia": 0.5007277727127075,
+    "Edema": 0.5007163286209106,
+    "Emphysema": 0.5003436803817749,
+    "Pneumothorax": 0.4041321277618408
+   },
+   "top": [
+    "Pleural_Thickening",
+    "Infiltration",
+    "Effusion"
+   ],
+   "overlays": {
+    "Pleural_Thickening": "S06_Pleural_Thickening.jpg",
+    "Infiltration": "S06_Infiltration.jpg",
+    "Effusion": "S06_Effusion.jpg"
+   },
+   "priority": 0.6991304159164429,
+   "patient": {
+    "age": 37,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 4
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S06",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 37
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S06",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S06"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.699
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.685
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.633
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S11",
+   "image": "S11.jpg",
+   "source": "00000013_020.png",
+   "truth": [
+    "Pneumothorax"
+   ],
+   "boxes": [],
+   "scores": {
+    "Effusion": 0.679908275604248,
+    "Infiltration": 0.6118155717849731,
+    "Mass": 0.6040352582931519,
+    "Pleural_Thickening": 0.5962197780609131,
+    "Atelectasis": 0.560478925704956,
+    "Consolidation": 0.5350493788719177,
+    "Nodule": 0.527715265750885,
+    "Cardiomegaly": 0.5184378623962402,
+    "Pneumothorax": 0.513168215751648,
+    "Pneumonia": 0.5087051391601562,
+    "Emphysema": 0.5072169303894043,
+    "Fibrosis": 0.5068085193634033,
+    "Edema": 0.5054905414581299,
+    "Hernia": 0.5019285082817078
+   },
+   "top": [
+    "Effusion",
+    "Infiltration",
+    "Mass"
+   ],
+   "overlays": {
+    "Effusion": "S11_Effusion.jpg",
+    "Infiltration": "S11_Infiltration.jpg",
+    "Mass": "S11_Mass.jpg"
+   },
+   "priority": 0.679908275604248,
+   "patient": {
+    "age": 61,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 45
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S11",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 61
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S11",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S11"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.68
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.612
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Mass"
+      },
+      "valueQuantity": {
+       "value": 0.604
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S05",
+   "image": "S05.jpg",
+   "source": "00000377_004.png",
+   "truth": [
+    "Cardiomegaly"
+   ],
+   "boxes": [
+    {
+     "label": "Cardiomegaly",
+     "x": 0.37870762711864453,
+     "y": 0.40969279661016994,
+     "w": 0.49046610169491506,
+     "h": 0.3591101694915254
+    }
+   ],
+   "scores": {
+    "Cardiomegaly": 0.6697601675987244,
+    "Fibrosis": 0.5806647539138794,
+    "Effusion": 0.5512243509292603,
+    "Emphysema": 0.5406516790390015,
+    "Nodule": 0.5333732962608337,
+    "Atelectasis": 0.5156729221343994,
+    "Pleural_Thickening": 0.5088561773300171,
+    "Mass": 0.5076415538787842,
+    "Hernia": 0.5060838460922241,
+    "Consolidation": 0.5002411603927612,
+    "Infiltration": 0.4293254613876343,
+    "Pneumonia": 0.34276482462882996,
+    "Pneumothorax": 0.30355384945869446,
+    "Edema": 0.11374326050281525
+   },
+   "top": [
+    "Cardiomegaly",
+    "Fibrosis",
+    "Effusion"
+   ],
+   "overlays": {
+    "Cardiomegaly": "S05_Cardiomegaly.jpg",
+    "Fibrosis": "S05_Fibrosis.jpg",
+    "Effusion": "S05_Effusion.jpg"
+   },
+   "priority": 0.6697601675987244,
+   "patient": {
+    "age": 57,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 4
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S05",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 57
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S05",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S05"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.67
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.581
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.551
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S09",
+   "image": "S09.jpg",
+   "source": "00000001_000.png",
+   "truth": [
+    "Cardiomegaly"
+   ],
+   "boxes": [],
+   "scores": {
+    "Cardiomegaly": 0.667479395866394,
+    "Effusion": 0.5657453536987305,
+    "Mass": 0.5315320491790771,
+    "Fibrosis": 0.5250036716461182,
+    "Atelectasis": 0.5220911502838135,
+    "Nodule": 0.5166983604431152,
+    "Pleural_Thickening": 0.5162826776504517,
+    "Emphysema": 0.5117144584655762,
+    "Infiltration": 0.5059337019920349,
+    "Hernia": 0.502509593963623,
+    "Consolidation": 0.5019797682762146,
+    "Edema": 0.5014214515686035,
+    "Pneumonia": 0.5008845925331116,
+    "Pneumothorax": 0.16787125170230865
+   },
+   "top": [
+    "Cardiomegaly",
+    "Effusion",
+    "Mass"
+   ],
+   "overlays": {
+    "Cardiomegaly": "S09_Cardiomegaly.jpg",
+    "Effusion": "S09_Effusion.jpg",
+    "Mass": "S09_Mass.jpg"
+   },
+   "priority": 0.667479395866394,
+   "patient": {
+    "age": 57,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S09",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 57
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S09",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S09"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.667
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.566
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Mass"
+      },
+      "valueQuantity": {
+       "value": 0.532
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S21",
+   "image": "S21.jpg",
+   "source": "00000002_000.png",
+   "truth": [
+    "No Finding"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.6619031429290771,
+    "Effusion": 0.5259392857551575,
+    "Hernia": 0.5257242321968079,
+    "Emphysema": 0.5098694562911987,
+    "Cardiomegaly": 0.5068007111549377,
+    "Pneumonia": 0.5065591335296631,
+    "Fibrosis": 0.5057870149612427,
+    "Consolidation": 0.5057804584503174,
+    "Pleural_Thickening": 0.5037858486175537,
+    "Mass": 0.5034955739974976,
+    "Nodule": 0.5031124353408813,
+    "Pneumothorax": 0.5002305507659912,
+    "Infiltration": 0.3588062822818756,
+    "Edema": 0.005932174623012543
+   },
+   "top": [
+    "Atelectasis",
+    "Effusion",
+    "Hernia"
+   ],
+   "overlays": {
+    "Atelectasis": "S21_Atelectasis.jpg",
+    "Effusion": "S21_Effusion.jpg",
+    "Hernia": "S21_Hernia.jpg"
+   },
+   "priority": 0.6619031429290771,
+   "patient": {
+    "age": 80,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S21",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 80
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S21",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S21"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.662
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.526
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Hernia"
+      },
+      "valueQuantity": {
+       "value": 0.526
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S23",
+   "image": "S23.jpg",
+   "source": "00000007_000.png",
+   "truth": [
+    "No Finding"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.607079267501831,
+    "Mass": 0.5368611812591553,
+    "Nodule": 0.5243400931358337,
+    "Hernia": 0.5098593831062317,
+    "Emphysema": 0.5054312944412231,
+    "Infiltration": 0.3245203197002411,
+    "Effusion": 0.2691341042518616,
+    "Fibrosis": 0.21119508147239685,
+    "Pneumothorax": 0.13626526296138763,
+    "Cardiomegaly": 0.11883478611707687,
+    "Pneumonia": 0.10401516407728195,
+    "Pleural_Thickening": 0.05265730246901512,
+    "Consolidation": 0.04535961523652077,
+    "Edema": 7.2796924541762564e-06
+   },
+   "top": [
+    "Atelectasis",
+    "Mass",
+    "Nodule"
+   ],
+   "overlays": {
+    "Atelectasis": "S23_Atelectasis.jpg",
+    "Mass": "S23_Mass.jpg",
+    "Nodule": "S23_Nodule.jpg"
+   },
+   "priority": 0.607079267501831,
+   "patient": {
+    "age": 82,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S23",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 82
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S23",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S23"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.607
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Mass"
+      },
+      "valueQuantity": {
+       "value": 0.537
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.524
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S18",
+   "image": "S18.jpg",
+   "source": "00000005_006.png",
+   "truth": [
+    "Infiltration"
+   ],
+   "boxes": [],
+   "scores": {
+    "Nodule": 0.6023859977722168,
+    "Infiltration": 0.5367761850357056,
+    "Fibrosis": 0.5336818695068359,
+    "Pneumonia": 0.5013481378555298,
+    "Edema": 0.5008302927017212,
+    "Consolidation": 0.24342228472232819,
+    "Pleural_Thickening": 0.21482741832733154,
+    "Hernia": 0.17377078533172607,
+    "Pneumothorax": 0.17047527432441711,
+    "Mass": 0.11454517394304276,
+    "Atelectasis": 0.06465096771717072,
+    "Effusion": 0.03923812136054039,
+    "Cardiomegaly": 0.0032896639313548803,
+    "Emphysema": 0.001309477025642991
+   },
+   "top": [
+    "Nodule",
+    "Infiltration",
+    "Fibrosis"
+   ],
+   "overlays": {
+    "Nodule": "S18_Nodule.jpg",
+    "Infiltration": "S18_Infiltration.jpg",
+    "Fibrosis": "S18_Fibrosis.jpg"
+   },
+   "priority": 0.6023859977722168,
+   "patient": {
+    "age": 70,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 6
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S18",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 70
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S18",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S18"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.602
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.537
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.534
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S10",
+   "image": "S10.jpg",
+   "source": "00000011_000.png",
+   "truth": [
+    "Effusion"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.5850107669830322,
+    "Infiltration": 0.5520570278167725,
+    "Fibrosis": 0.5300924777984619,
+    "Pneumonia": 0.5257236957550049,
+    "Hernia": 0.5183711051940918,
+    "Consolidation": 0.5129746198654175,
+    "Pneumothorax": 0.5081441402435303,
+    "Pleural_Thickening": 0.5080218315124512,
+    "Nodule": 0.5046654343605042,
+    "Effusion": 0.5041900277137756,
+    "Edema": 0.5007396340370178,
+    "Emphysema": 0.5003105998039246,
+    "Mass": 0.2643584609031677,
+    "Cardiomegaly": 0.2213887870311737
+   },
+   "top": [
+    "Atelectasis",
+    "Infiltration",
+    "Fibrosis"
+   ],
+   "overlays": {
+    "Atelectasis": "S10_Atelectasis.jpg",
+    "Infiltration": "S10_Infiltration.jpg",
+    "Fibrosis": "S10_Fibrosis.jpg"
+   },
+   "priority": 0.5850107669830322,
+   "patient": {
+    "age": 74,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S10",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 74
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S10",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S10"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.585
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.552
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.53
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S17",
+   "image": "S17.jpg",
+   "source": "00000009_000.png",
+   "truth": [
+    "Emphysema"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.5774897336959839,
+    "Fibrosis": 0.5705592036247253,
+    "Effusion": 0.5386539697647095,
+    "Infiltration": 0.5244357585906982,
+    "Hernia": 0.5181158781051636,
+    "Nodule": 0.5151199698448181,
+    "Pleural_Thickening": 0.5077175498008728,
+    "Emphysema": 0.506488561630249,
+    "Pneumothorax": 0.5032521486282349,
+    "Pneumonia": 0.5023161768913269,
+    "Consolidation": 0.5005093812942505,
+    "Mass": 0.47153764963150024,
+    "Cardiomegaly": 0.08857227116823196,
+    "Edema": 0.08750125020742416
+   },
+   "top": [
+    "Atelectasis",
+    "Fibrosis",
+    "Effusion"
+   ],
+   "overlays": {
+    "Atelectasis": "S17_Atelectasis.jpg",
+    "Fibrosis": "S17_Fibrosis.jpg",
+    "Effusion": "S17_Effusion.jpg"
+   },
+   "priority": 0.5774897336959839,
+   "patient": {
+    "age": 72,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S17",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 72
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S17",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S17"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.577
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.571
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Effusion"
+      },
+      "valueQuantity": {
+       "value": 0.539
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S07",
+   "image": "S07.jpg",
+   "source": "00000468_033.png",
+   "truth": [
+    "Atelectasis"
+   ],
+   "boxes": [
+    {
+     "label": "Atelectasis",
+     "x": 0.1996822033898301,
+     "y": 0.49076625048104006,
+     "w": 0.11334745762711816,
+     "h": 0.05190677966101699
+    }
+   ],
+   "scores": {
+    "Infiltration": 0.5764559507369995,
+    "Cardiomegaly": 0.5094486474990845,
+    "Atelectasis": 0.5038740038871765,
+    "Pleural_Thickening": 0.5022131204605103,
+    "Edema": 0.5020848512649536,
+    "Consolidation": 0.5018972158432007,
+    "Pneumonia": 0.5008721947669983,
+    "Nodule": 0.5007437467575073,
+    "Hernia": 0.3110288679599762,
+    "Effusion": 0.27721041440963745,
+    "Fibrosis": 0.1877850443124771,
+    "Mass": 0.14385871589183807,
+    "Pneumothorax": 0.033429354429244995,
+    "Emphysema": 0.0008298440952785313
+   },
+   "top": [
+    "Infiltration",
+    "Cardiomegaly",
+    "Atelectasis"
+   ],
+   "overlays": {
+    "Infiltration": "S07_Infiltration.jpg",
+    "Cardiomegaly": "S07_Cardiomegaly.jpg",
+    "Atelectasis": "S07_Atelectasis.jpg"
+   },
+   "priority": 0.5764559507369995,
+   "patient": {
+    "age": 31,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 51
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S07",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 31
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S07",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S07"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.576
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.509
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.504
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S22",
+   "image": "S22.jpg",
+   "source": "00000006_000.png",
+   "truth": [
+    "No Finding"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.5762522220611572,
+    "Emphysema": 0.5551067590713501,
+    "Nodule": 0.5245837569236755,
+    "Mass": 0.5199215412139893,
+    "Hernia": 0.5168253183364868,
+    "Cardiomegaly": 0.5069057941436768,
+    "Fibrosis": 0.5017402172088623,
+    "Consolidation": 0.5008424520492554,
+    "Pneumonia": 0.500077486038208,
+    "Effusion": 0.45978325605392456,
+    "Pneumothorax": 0.33525213599205017,
+    "Infiltration": 0.3241524398326874,
+    "Pleural_Thickening": 0.2329341024160385,
+    "Edema": 0.000479311915114522
+   },
+   "top": [
+    "Atelectasis",
+    "Emphysema",
+    "Nodule"
+   ],
+   "overlays": {
+    "Atelectasis": "S22_Atelectasis.jpg",
+    "Emphysema": "S22_Emphysema.jpg",
+    "Nodule": "S22_Nodule.jpg"
+   },
+   "priority": 0.5762522220611572,
+   "patient": {
+    "age": 81,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S22",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 81
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S22",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S22"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.576
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Emphysema"
+      },
+      "valueQuantity": {
+       "value": 0.555
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.525
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S02",
+   "image": "S02.jpg",
+   "source": "00000147_001.png",
+   "truth": [
+    "Atelectasis"
+   ],
+   "boxes": [
+    {
+     "label": "Atelectasis",
+     "x": 0.6031746031746035,
+     "y": 0.5851851851851856,
+     "w": 0.09841269841269824,
+     "h": 0.175661375661376
+    }
+   ],
+   "scores": {
+    "Infiltration": 0.5715842247009277,
+    "Atelectasis": 0.5608583092689514,
+    "Pleural_Thickening": 0.5286105275154114,
+    "Cardiomegaly": 0.5191535949707031,
+    "Effusion": 0.5140334367752075,
+    "Consolidation": 0.5115369558334351,
+    "Pneumonia": 0.5077818036079407,
+    "Hernia": 0.506001353263855,
+    "Edema": 0.5028347373008728,
+    "Fibrosis": 0.5011042952537537,
+    "Pneumothorax": 0.41324108839035034,
+    "Nodule": 0.4052327275276184,
+    "Mass": 0.2069467157125473,
+    "Emphysema": 0.1555953323841095
+   },
+   "top": [
+    "Infiltration",
+    "Atelectasis",
+    "Pleural_Thickening"
+   ],
+   "overlays": {
+    "Infiltration": "S02_Infiltration.jpg",
+    "Atelectasis": "S02_Atelectasis.jpg",
+    "Pleural_Thickening": "S02_Pleural_Thickening.jpg"
+   },
+   "priority": 0.5715842247009277,
+   "patient": {
+    "age": 66,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 1
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S02",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 66
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S02",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S02"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.572
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.561
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.529
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S14",
+   "image": "S14.jpg",
+   "source": "00000030_000.png",
+   "truth": [
+    "Atelectasis"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.5703233480453491,
+    "Infiltration": 0.5362354516983032,
+    "Fibrosis": 0.5274896621704102,
+    "Pleural_Thickening": 0.5115656852722168,
+    "Nodule": 0.510849118232727,
+    "Hernia": 0.5050281286239624,
+    "Pneumothorax": 0.5016728043556213,
+    "Effusion": 0.5011810660362244,
+    "Consolidation": 0.5000358819961548,
+    "Pneumonia": 0.2940930426120758,
+    "Mass": 0.2619485557079315,
+    "Emphysema": 0.18658573925495148,
+    "Edema": 0.045730192214250565,
+    "Cardiomegaly": 0.011764789000153542
+   },
+   "top": [
+    "Atelectasis",
+    "Infiltration",
+    "Fibrosis"
+   ],
+   "overlays": {
+    "Atelectasis": "S14_Atelectasis.jpg",
+    "Infiltration": "S14_Infiltration.jpg",
+    "Fibrosis": "S14_Fibrosis.jpg"
+   },
+   "priority": 0.5703233480453491,
+   "patient": {
+    "age": 74,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S14",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 74
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S14",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S14"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.57
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.536
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.527
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S15",
+   "image": "S15.jpg",
+   "source": "00000112_002.png",
+   "truth": [
+    "Consolidation"
+   ],
+   "boxes": [],
+   "scores": {
+    "Atelectasis": 0.5490549206733704,
+    "Cardiomegaly": 0.5165760517120361,
+    "Hernia": 0.5021283030509949,
+    "Emphysema": 0.5011520981788635,
+    "Pleural_Thickening": 0.4733428359031677,
+    "Pneumonia": 0.3890411853790283,
+    "Nodule": 0.35767269134521484,
+    "Consolidation": 0.347215473651886,
+    "Effusion": 0.2774360179901123,
+    "Infiltration": 0.16362008452415466,
+    "Mass": 0.16046875715255737,
+    "Fibrosis": 0.11858727782964706,
+    "Pneumothorax": 0.04685581848025322,
+    "Edema": 0.006941429805010557
+   },
+   "top": [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Hernia"
+   ],
+   "overlays": {
+    "Atelectasis": "S15_Atelectasis.jpg",
+    "Cardiomegaly": "S15_Cardiomegaly.jpg",
+    "Hernia": "S15_Hernia.jpg"
+   },
+   "priority": 0.5490549206733704,
+   "patient": {
+    "age": 49,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 2
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S15",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 49
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S15",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S15"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Atelectasis"
+      },
+      "valueQuantity": {
+       "value": 0.549
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.517
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Hernia"
+      },
+      "valueQuantity": {
+       "value": 0.502
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S19",
+   "image": "S19.jpg",
+   "source": "00000022_001.png",
+   "truth": [
+    "Fibrosis"
+   ],
+   "boxes": [],
+   "scores": {
+    "Nodule": 0.5473179817199707,
+    "Mass": 0.5168142318725586,
+    "Pleural_Thickening": 0.5054680705070496,
+    "Fibrosis": 0.5045080184936523,
+    "Hernia": 0.5030533075332642,
+    "Consolidation": 0.5010579228401184,
+    "Emphysema": 0.5007603168487549,
+    "Pneumothorax": 0.43336811661720276,
+    "Infiltration": 0.3422878086566925,
+    "Effusion": 0.24360136687755585,
+    "Pneumonia": 0.13637158274650574,
+    "Atelectasis": 0.0956106185913086,
+    "Edema": 0.00022028690727893263,
+    "Cardiomegaly": 0.00013211718760430813
+   },
+   "top": [
+    "Nodule",
+    "Mass",
+    "Pleural_Thickening"
+   ],
+   "overlays": {
+    "Nodule": "S19_Nodule.jpg",
+    "Mass": "S19_Mass.jpg",
+    "Pleural_Thickening": "S19_Pleural_Thickening.jpg"
+   },
+   "priority": 0.5473179817199707,
+   "patient": {
+    "age": 48,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 1
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S19",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 48
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S19",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S19"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.547
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Mass"
+      },
+      "valueQuantity": {
+       "value": 0.517
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.505
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S13",
+   "image": "S13.jpg",
+   "source": "00000008_002.png",
+   "truth": [
+    "Nodule"
+   ],
+   "boxes": [],
+   "scores": {
+    "Cardiomegaly": 0.5379210710525513,
+    "Infiltration": 0.520276665687561,
+    "Pleural_Thickening": 0.5038093328475952,
+    "Fibrosis": 0.500840425491333,
+    "Emphysema": 0.5003092288970947,
+    "Hernia": 0.5000371336936951,
+    "Effusion": 0.4610278010368347,
+    "Nodule": 0.4048614799976349,
+    "Atelectasis": 0.2032061666250229,
+    "Mass": 0.15323255956172943,
+    "Consolidation": 0.1442187875509262,
+    "Pneumonia": 0.02930084988474846,
+    "Edema": 0.017441002652049065,
+    "Pneumothorax": 0.014217021875083447
+   },
+   "top": [
+    "Cardiomegaly",
+    "Infiltration",
+    "Pleural_Thickening"
+   ],
+   "overlays": {
+    "Cardiomegaly": "S13_Cardiomegaly.jpg",
+    "Infiltration": "S13_Infiltration.jpg",
+    "Pleural_Thickening": "S13_Pleural_Thickening.jpg"
+   },
+   "priority": 0.5379210710525513,
+   "patient": {
+    "age": 72,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 2
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S13",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 72
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S13",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S13"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Cardiomegaly"
+      },
+      "valueQuantity": {
+       "value": 0.538
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.52
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.504
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S16",
+   "image": "S16.jpg",
+   "source": "00000459_053.png",
+   "truth": [
+    "Edema"
+   ],
+   "boxes": [],
+   "scores": {
+    "Infiltration": 0.5358114838600159,
+    "Pneumonia": 0.5139923095703125,
+    "Fibrosis": 0.5120011568069458,
+    "Consolidation": 0.5117412805557251,
+    "Nodule": 0.5108897089958191,
+    "Atelectasis": 0.5086181163787842,
+    "Effusion": 0.5079739093780518,
+    "Edema": 0.507387638092041,
+    "Mass": 0.5046857595443726,
+    "Cardiomegaly": 0.5040421485900879,
+    "Pleural_Thickening": 0.46748438477516174,
+    "Hernia": 0.2969163656234741,
+    "Pneumothorax": 0.23252782225608826,
+    "Emphysema": 0.0028705690056085587
+   },
+   "top": [
+    "Infiltration",
+    "Pneumonia",
+    "Fibrosis"
+   ],
+   "overlays": {
+    "Infiltration": "S16_Infiltration.jpg",
+    "Pneumonia": "S16_Pneumonia.jpg",
+    "Fibrosis": "S16_Fibrosis.jpg"
+   },
+   "priority": 0.5358114838600159,
+   "patient": {
+    "age": 54,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 26
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S16",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 54
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S16",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S16"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.536
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pneumonia"
+      },
+      "valueQuantity": {
+       "value": 0.514
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.512
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S01",
+   "image": "S01.jpg",
+   "source": "00000072_000.png",
+   "truth": [
+    "Atelectasis"
+   ],
+   "boxes": [
+    {
+     "label": "Atelectasis",
+     "x": 0.34814814814814843,
+     "y": 0.5544973544973545,
+     "w": 0.12486772486772461,
+     "h": 0.08042328042328047
+    }
+   ],
+   "scores": {
+    "Nodule": 0.5289894342422485,
+    "Infiltration": 0.5096064209938049,
+    "Fibrosis": 0.5010647773742676,
+    "Consolidation": 0.40199097990989685,
+    "Atelectasis": 0.37765830755233765,
+    "Pleural_Thickening": 0.3331468403339386,
+    "Mass": 0.31956106424331665,
+    "Hernia": 0.3141653835773468,
+    "Pneumonia": 0.292667418718338,
+    "Pneumothorax": 0.13928887248039246,
+    "Effusion": 0.1380453258752823,
+    "Emphysema": 0.05390363931655884,
+    "Edema": 0.04675740748643875,
+    "Cardiomegaly": 0.0008426820277236402
+   },
+   "top": [
+    "Nodule",
+    "Infiltration",
+    "Fibrosis"
+   ],
+   "overlays": {
+    "Nodule": "S01_Nodule.jpg",
+    "Infiltration": "S01_Infiltration.jpg",
+    "Fibrosis": "S01_Fibrosis.jpg"
+   },
+   "priority": 0.5289894342422485,
+   "patient": {
+    "age": 67,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S01",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 67
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S01",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S01"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Nodule"
+      },
+      "valueQuantity": {
+       "value": 0.529
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.51
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.501
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S20",
+   "image": "S20.jpg",
+   "source": "00000020_000.png",
+   "truth": [
+    "Pleural_Thickening"
+   ],
+   "boxes": [],
+   "scores": {
+    "Fibrosis": 0.5222244262695312,
+    "Infiltration": 0.5154435634613037,
+    "Pleural_Thickening": 0.5135248899459839,
+    "Pneumonia": 0.5077317953109741,
+    "Consolidation": 0.5041900277137756,
+    "Edema": 0.5012948513031006,
+    "Hernia": 0.5001779198646545,
+    "Nodule": 0.44032907485961914,
+    "Pneumothorax": 0.24300910532474518,
+    "Atelectasis": 0.23739759624004364,
+    "Effusion": 0.16792529821395874,
+    "Mass": 0.16179579496383667,
+    "Emphysema": 0.11695421487092972,
+    "Cardiomegaly": 0.06514843553304672
+   },
+   "top": [
+    "Fibrosis",
+    "Infiltration",
+    "Pleural_Thickening"
+   ],
+   "overlays": {
+    "Fibrosis": "S20_Fibrosis.jpg",
+    "Infiltration": "S20_Infiltration.jpg",
+    "Pleural_Thickening": "S20_Pleural_Thickening.jpg"
+   },
+   "priority": 0.5222244262695312,
+   "patient": {
+    "age": 53,
+    "sex": "M",
+    "view": "PA",
+    "followUp": 2
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S20",
+     "gender": "male",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 53
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S20",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S20"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.522
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Infiltration"
+      },
+      "valueQuantity": {
+       "value": 0.515
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.514
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "S24",
+   "image": "S24.jpg",
+   "source": "00000014_000.png",
+   "truth": [
+    "No Finding"
+   ],
+   "boxes": [],
+   "scores": {
+    "Fibrosis": 0.5033622980117798,
+    "Pleural_Thickening": 0.5020806193351746,
+    "Consolidation": 0.5011637210845947,
+    "Emphysema": 0.5002172589302063,
+    "Pneumonia": 0.19731290638446808,
+    "Nodule": 0.1756739765405655,
+    "Pneumothorax": 0.17512910068035126,
+    "Hernia": 0.1164444163441658,
+    "Atelectasis": 0.09629931300878525,
+    "Effusion": 0.08901697397232056,
+    "Infiltration": 0.07513070851564407,
+    "Mass": 0.05971381440758705,
+    "Cardiomegaly": 0.011256731115281582,
+    "Edema": 0.00862990040332079
+   },
+   "top": [
+    "Fibrosis",
+    "Pleural_Thickening",
+    "Consolidation"
+   ],
+   "overlays": {
+    "Fibrosis": "S24_Fibrosis.jpg",
+    "Pleural_Thickening": "S24_Pleural_Thickening.jpg",
+    "Consolidation": "S24_Consolidation.jpg"
+   },
+   "priority": 0.5033622980117798,
+   "patient": {
+    "age": 60,
+    "sex": "F",
+    "view": "PA",
+    "followUp": 0
+   },
+   "fhir": {
+    "Patient": {
+     "resourceType": "Patient",
+     "id": "pat-S24",
+     "gender": "female",
+     "extension": [
+      {
+       "url": "age-at-study",
+       "valueInteger": 60
+      }
+     ]
+    },
+    "ImagingStudy": {
+     "resourceType": "ImagingStudy",
+     "id": "img-S24",
+     "status": "available",
+     "subject": {
+      "reference": "Patient/pat-S24"
+     },
+     "modality": [
+      {
+       "code": "DX"
+      }
+     ],
+     "series": [
+      {
+       "bodySite": {
+        "display": "Chest"
+       },
+       "description": "PA view"
+      }
+     ]
+    },
+    "Observation": [
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Fibrosis"
+      },
+      "valueQuantity": {
+       "value": 0.503
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Pleural_Thickening"
+      },
+      "valueQuantity": {
+       "value": 0.502
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     },
+     {
+      "resourceType": "Observation",
+      "status": "preliminary",
+      "code": {
+       "text": "Consolidation"
+      },
+      "valueQuantity": {
+       "value": 0.501
+      },
+      "note": [
+       {
+        "text": "AI-generated, research use only"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

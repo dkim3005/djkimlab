@@ -50,9 +50,10 @@ const CASE_STUDIES: CaseStudy[] = [
     approach:
       "DenseNet121 multi-label triage over NIH ChestX-ray14 (14 findings) with FHIR patient context, Grad-CAM activation maps for each prediction, and CLIP ViT-B/32 semantic image search — three workflows sharing one model.",
     outcome:
-      "An end-to-end research prototype covering prediction, explanation and retrieval, built to show how imaging AI can sit inside a clinical workflow.",
+      "A working triage worklist with activation maps checked against the dataset's labels and radiologist boxes — and an honest view of where the model agrees and where it does not.",
     stack: ["PyTorch", "DenseNet121", "Grad-CAM", "CLIP", "HL7 FHIR"],
     links: [
+      { label: "Try the demo", href: "/projects/radiology/demo" },
       { label: "Case study", href: "/projects/radiology" },
       { label: "Code", href: `${GITHUB}/radiology-ai` },
       { label: "Explainability", href: `${GITHUB}/xai-dashboard` },
